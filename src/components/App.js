@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
 // import BakerPage from "./BakerPage";
 // import Favorites from "./Favorites";
-// import Login from "./Login";
+import Login from "./Login";
 // import Signup from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../redux/productSlice";
@@ -12,6 +12,7 @@ import { addProducts } from "../redux/productSlice";
 function App() {
 
   const dispatch = useDispatch()
+  const [currentUser, setCurrentUser] = useState(null)
 
   const API = "http://localhost:3000/products";
   useEffect(() => {
@@ -26,11 +27,11 @@ function App() {
 
   return (
     <>
-    <NavBar></NavBar>
+    <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}></NavBar>
     <main>
       <Switch>
         <Route path="/login">
-          {/* <Login currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}
+          <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </Route>
         <Route path="/signup">
           {/* <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}

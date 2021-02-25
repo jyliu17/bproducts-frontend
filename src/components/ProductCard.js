@@ -13,14 +13,14 @@ function ProductCard({product}) {
     return (
         <Card>
         <h3>{name}</h3>
-        <img src={image} alt={name} style={{ height: 220, width:220 }} />
+        <img src={image} alt={name} style={{ height: 250, width:250 }} />
         <br></br>
         <LinkStyle>
         <Link style={{ textDecoration:"none" }} to={`/product/${id}`}>View Product Detail </Link>
         </LinkStyle>
         <p> Brand: {brand}</p>
         <p> Cost: ${cost}</p>
-        <p> Cost Range: {cost_range}</p>
+        <p> Up to: {time_of_use / 12} years</p>
         
         <br></br>
         {/* {currentUser ?
@@ -43,7 +43,7 @@ const Card = styled.div`
   margin-top: 10px;
   margin-buttom: 0px;
   padding: 5px;
-  border: 1px solid #df69c6;
+  border: 1px solid black;
   border-radius: 6px;
  
 
