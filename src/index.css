@@ -49,7 +49,7 @@ h1 {
 }
 
 h3 {
-  color: #c472b9;
+  color: #080408;
 }
 
 h4 {
@@ -102,7 +102,7 @@ header {
 }
 
 header a {
-  color: #df69c6;
+  color: #1a0d17;
   padding: 6px 8px 6px 16px;
   text-decoration: wavy;
   font-size: 20px;
@@ -111,7 +111,7 @@ header a {
 }
 
 a:hover {
-  color: #a01f84;
+  color: #0a0409;
 }
 
 button:hover {

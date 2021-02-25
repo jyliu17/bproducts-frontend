@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-// import BakersList from "./BakersList";
+import ProductsList from "./ProductsList";
 // import BakerPage from "./BakerPage";
 // import Favorites from "./Favorites";
 // import Login from "./Login";
@@ -38,19 +38,20 @@ function App() {
         <Route path="/products/:id">
           {/* <BakerPage handleUpdateBaker={handleUpdateBaker} currentUser={currentUser} /> */}
         </Route>
-        <Route path="/bakers">
-          {/* <ProductsList bakersState={filteredBakers}
-            bakerSearch={bakerSearch}
-            setBakerSearch={setBakerSearch}
-            handleAddBaker={handleAddBaker}
-            handleFormClick={handleFormClick}
-            setShowForm={setShowForm}
-            showForm={showForm}
-            onAdded={handleAddFav}
-            onRemoved={handleRemoveFav}
-            currentUser={currentUser}
-            favs={favs}
-          /> */}
+        <Route path="/products">
+          <ProductsList 
+            // bakersState={filteredBakers}
+            // bakerSearch={bakerSearch}
+            // setBakerSearch={setBakerSearch}
+            // handleAddBaker={handleAddBaker}
+            // handleFormClick={handleFormClick}
+            // setShowForm={setShowForm}
+            // showForm={showForm}
+            // onAdded={handleAddFav}
+            // onRemoved={handleRemoveFav}
+            // currentUser={currentUser}
+            // favs={favs}
+          />
         </Route>
         <Route path="/favorites">
           {/* <Favorites
