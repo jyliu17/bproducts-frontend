@@ -3,20 +3,22 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 // import BakersList from "./BakersList";
 // import BakerPage from "./BakerPage";
-import Favorites from "./Favorites";
-import Login from "./Login";
-import Signup from "./Signup";
+// import Favorites from "./Favorites";
+// import Login from "./Login";
+// import Signup from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
+import { addProducts } from "../redux/productSlice";
 
 function App() {
 
+  const dispatch = useDispatch()
 
   const API = "http://localhost:3000/products";
   useEffect(() => {
     fetch(API)
     .then(r => r.json())
-    .then(festivalObjs => {
-      dispatch(addFests(festivalObjs))
+    .then(productObj => {
+      dispatch(addProducts(productObj))
     })
   }, [dispatch])
 
@@ -24,20 +26,20 @@ function App() {
 
   return (
     <>
-    <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}></NavBar>
+    <NavBar></NavBar>
     <main>
       <Switch>
         <Route path="/login">
-          <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          {/* <Login currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}
         </Route>
         <Route path="/signup">
-          <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          {/* <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}
         </Route>
         <Route path="/products/:id">
-          <BakerPage handleUpdateBaker={handleUpdateBaker} currentUser={currentUser} />
+          {/* <BakerPage handleUpdateBaker={handleUpdateBaker} currentUser={currentUser} /> */}
         </Route>
         <Route path="/bakers">
-          <BakersList bakersState={filteredBakers}
+          {/* <ProductsList bakersState={filteredBakers}
             bakerSearch={bakerSearch}
             setBakerSearch={setBakerSearch}
             handleAddBaker={handleAddBaker}
@@ -48,16 +50,16 @@ function App() {
             onRemoved={handleRemoveFav}
             currentUser={currentUser}
             favs={favs}
-          />
+          /> */}
         </Route>
         <Route path="/favorites">
-          <Favorites
+          {/* <Favorites
             key='myFav'
             onRemoveFromFav={onRemoveFromFav}
             currentUser={currentUser}
             favs={favs}
             setFavs={setFavs}
-            />
+            /> */}
         </Route>
       </Switch>
     </main>
