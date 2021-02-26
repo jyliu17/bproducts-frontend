@@ -17,6 +17,7 @@ function ProductsList(params) {
 
     return (
         <div>
+        <h1>Strollers</h1>
         {productsArray}
         </div>
     )

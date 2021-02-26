@@ -8,7 +8,7 @@ import styled from "styled-components"
 
 function ProductCard({product}) {
 
-    const {id, name, type_of, brand, cost, time_of_use, image } = product
+    const {id, name, brand, cost, time_of_use, image } = product
 
     return (
         <Card>

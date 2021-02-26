@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReviewCard from "./ReviewCard"
 
 
 // import styled from "styled-components"
 
-function ProductPage() {
+function ProductPage({reviews}) {
 
     const { id } = useParams();
     const [productObj, setProductObj] = useState({})
@@ -14,13 +15,29 @@ function ProductPage() {
         fetch(`http://localhost:3000/products/${id}`)
           .then((r) => r.json())
           .then((obj) => {
-              console.log(obj)
             setProductObj(obj)
           }
           );
           
       }, [id]);
       
+      
+
+      const thisProduct = reviews.filter(rev => {
+          
+         return rev.product_id == id
+       
+    }) 
+
+   
+   
+    const reviewArray = thisProduct.map(review => {
+        return <ReviewCard key={review.id} review={review}/>
+
+    })
+
+   
+
 
       return (
         <section>
@@ -33,6 +50,11 @@ function ProductPage() {
             <p> Stroller Type : {type_of}</p>
             <p>Cost: {cost}</p>
             <p>Use up to: {time_of_use/12} years</p>
+          </div>
+
+          <h2> Reviews </h2>
+          <div>
+              {reviewArray}
           </div>
         </section>
       );

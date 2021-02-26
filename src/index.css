@@ -37,7 +37,7 @@ code {
   background-color: #070206;
 }
 .welcome {
-  color: #613e59;
+  color: #0a090a;
   margin-top: auto;
   font-size: 2rem;
   /* padding: 6px 8px 6px 16px; */
@@ -98,7 +98,7 @@ header {
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: rgb(221, 210, 210);
+  background-color: #c9c9c9;
 }
 
 header a {
@@ -124,7 +124,7 @@ main {
 }
 
 form {
-  background-color: #fceefc;
+  background-color: #c9c9c9;
   border: none;
   display: flex;
   flex-direction: column;
@@ -134,7 +134,7 @@ form {
   margin: 50%
 }
 .add-baker-form {
-  background-color: #fceefc;
+  background-color: #c9c9c9;
   border: none;
   display: flex;
   flex-direction: column;

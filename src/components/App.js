@@ -14,6 +14,7 @@ function App() {
 
   const dispatch = useDispatch()
   const [currentUser, setCurrentUser] = useState(null)
+  const [reviews, setReviews] = useState([])
 
     // autologin
     useEffect(() => {
@@ -43,6 +44,15 @@ function App() {
     })
   }, [dispatch])
 
+  useEffect(() => {
+    fetch(`http://localhost:3000/reviews`)
+      .then((r) => r.json())
+      .then((obj) => {
+        setReviews(obj)
+      }
+      );
+  }, []);
+
 
 
   return (
@@ -62,14 +72,13 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          <ProductPage currentUser={currentUser} />
+          <ProductPage reviews={reviews} />
         </Route>
         <Route path="/products">
           <ProductsList 
-            // bakersState={filteredBakers}
-            // bakerSearch={bakerSearch}
-            // setBakerSearch={setBakerSearch}
-            // handleAddBaker={handleAddBaker}
+            // productSearch={productSearch}
+            // setProductSearch={setProductSearch}
+            // handleAddProduct={handleAddProduct}
             // handleFormClick={handleFormClick}
             // setShowForm={setShowForm}
             // showForm={showForm}
