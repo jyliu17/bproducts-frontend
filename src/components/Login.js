@@ -23,6 +23,7 @@ function Login({setCurrentUser}) {
         })
         .then((r) => r.json())
         .then(userObj => {
+            console.log(userObj)
         if (userObj.errors) {
           setErrors(userObj.errors)
         } else {

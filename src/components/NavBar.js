@@ -15,6 +15,7 @@ function NavBar({ currentUser, setCurrentUser}) {
         {currentUser ?  (
           <>
             <h1 className="welcome" >Welcome, {currentUser.username}!</h1>
+            <NavLink to="/profile">My Profile</NavLink>
             <NavLink to="/products">Product</NavLink>
             <NavLink to="/favorites">My Favorites</NavLink>
             <button className="logout" onClick={logout}>Logout</button>
