@@ -35,7 +35,9 @@ function App() {
           <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </Route>
         <Route path="/profile">
-          <Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+          {currentUser ?
+          <Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/> : 
+          <h2>Please Login or create an account</h2>}
         </Route>
         <Route path="/signup">
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
