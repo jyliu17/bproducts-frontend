@@ -11,7 +11,7 @@ function NavBar({ currentUser, setCurrentUser}) {
   return (
     <header>
       <div>
-      <img className="logo" src="../mainLogo.png" />
+      <img className="logo" src="../mainLogo.png" alt=""/>
         {currentUser ?  (
           <>
             <h1 className="welcome" >Welcome, {currentUser.username}!</h1>

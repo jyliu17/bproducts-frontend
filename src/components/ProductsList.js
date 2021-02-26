@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  } from 'react'
 import { useSelector } from 'react-redux'
 import ProductCard from './ProductCard'
 
@@ -6,8 +6,8 @@ function ProductsList(params) {
 
     const products = useSelector(state => state.product.products)
     const strollers = products.filter(prod => {
-      console.log(prod.category.id)  
-        return prod.category.id == 1
+  
+        return prod.category.id === 1
     }) 
     
 

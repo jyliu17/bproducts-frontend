@@ -2,18 +2,37 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
-// import BakerPage from "./BakerPage";
+import ProductPage from "./ProductPage";
 // import Favorites from "./Favorites";
 import Login from "./Login";
 import Profile from "./Profile";
 import Signup from "./Signup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProducts } from "../redux/productSlice";
 
 function App() {
 
   const dispatch = useDispatch()
   const [currentUser, setCurrentUser] = useState(null)
+
+    // autologin
+    useEffect(() => {
+      // TODO: check if there'a token for the logged in user
+      // GET /me
+      const token = localStorage.getItem("token");
+      if (token) {
+        fetch("http://localhost:3000/self", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((r) => r.json())
+          .then((user) => {
+            // set the user in state
+            setCurrentUser(user);
+          });
+      }
+    }, []);
 
   const API = "http://localhost:3000/products";
   useEffect(() => {
@@ -43,7 +62,7 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          {/* <BakerPage handleUpdateBaker={handleUpdateBaker} currentUser={currentUser} /> */}
+          <ProductPage currentUser={currentUser} />
         </Route>
         <Route path="/products">
           <ProductsList 

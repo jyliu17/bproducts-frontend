@@ -2,13 +2,13 @@
 import React, { } from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components"
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 
 
 function ProductCard({product}) {
 
-    const {id, name, type_of, brand, cost, cost_range, time_of_use, description, image } = product
+    const {id, name, type_of, brand, cost, time_of_use, image } = product
 
     return (
         <Card>
@@ -16,7 +16,7 @@ function ProductCard({product}) {
         <img src={image} alt={name} style={{ height: 250, width:250 }} />
         <br></br>
         <LinkStyle>
-        <Link style={{ textDecoration:"none" }} to={`/product/${id}`}>View Product Detail </Link>
+        <Link style={{ color:"white" }} to={`/products/${id}`}>View Product Detail </Link>
         </LinkStyle>
         <p> Brand: {brand}</p>
         <p> Cost: ${cost}</p>
@@ -55,7 +55,7 @@ const Card = styled.div`
 
 const LinkStyle = styled.div`
     background-color: #8a6083;
-    background-color: #fceefc;
+    background-color: gray;
     border: 1px solid white;
     padding: 20px;
     border-radius: 16px; 

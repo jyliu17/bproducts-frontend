@@ -4,9 +4,9 @@ function Profile({ currentUser, setCurrentUser }) {
 
   
   const [formData, setFormData] = useState({
-    username: "",
+    username: currentUser.username,
     password: "",
-    email: "",
+    email: currentUser.email,
   });
   const { username, password, email } = formData;
 
