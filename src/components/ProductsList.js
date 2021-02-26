@@ -5,8 +5,13 @@ import ProductCard from './ProductCard'
 function ProductsList(params) {
 
     const products = useSelector(state => state.product.products)
+    const strollers = products.filter(prod => {
+      console.log(prod.category.id)  
+        return prod.category.id == 1
+    }) 
+    
 
-    const productsArray = products.map(prod => {
+    const productsArray = strollers.map(prod => {
         return <ProductCard key={prod.id} product={prod}/>
     })
 
