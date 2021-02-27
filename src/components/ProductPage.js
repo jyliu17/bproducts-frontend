@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard"
+import ReviewForm from "./ReviewForm"
 
 
 // import styled from "styled-components"
 
-function ProductPage({reviews}) {
+function ProductPage({reviews, currentUser}) {
 
     const { id } = useParams();
     const [productObj, setProductObj] = useState({})
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
+    const [reviewsArray,setReviewsArray] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${id}`)
@@ -21,18 +23,20 @@ function ProductPage({reviews}) {
           
       }, [id]);
       
-      
+     
+      function addReview(reviewObj) {
+          const newReviewArray = [...reviewsArray, reviewObj]
+          setReviewsArray(newReviewArray)
+          
+      }
 
       const thisProduct = reviews.filter(rev => {
           
          return rev.product_id == id
        
     }) 
-
-   
-   
     const reviewArray = thisProduct.map(review => {
-        return <ReviewCard key={review.id} review={review}/>
+        return <ReviewCard key={review.id} review={review} currentUser={currentUser}/>
 
     })
 
@@ -55,6 +59,9 @@ function ProductPage({reviews}) {
           <h2> Reviews </h2>
           <div>
               {reviewArray}
+          </div>
+          <div>
+              <ReviewForm currentUser={currentUser} product={productObj} addReview={addReview}/>
           </div>
         </section>
       );

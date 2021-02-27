@@ -72,7 +72,7 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          <ProductPage reviews={reviews} />
+          <ProductPage reviews={reviews} currentUser={currentUser}/>
         </Route>
         <Route path="/products">
           <ProductsList 
