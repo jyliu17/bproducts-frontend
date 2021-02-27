@@ -6,37 +6,43 @@ import ReviewForm from "./ReviewForm"
 
 // import styled from "styled-components"
 
-function ProductPage({reviews, currentUser, addReview}) {
+function ProductPage({reviews, currentUser, addReview, removeReview}) {
 
-    const { id } = useParams();
+    const params = useParams();
     const [productObj, setProductObj] = useState({})
     const [review, setReview] = useState("")
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
     
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(`http://localhost:3000/products/${params.id}`)
           .then((r) => r.json())
           .then((obj) => {
             setProductObj(obj)
           }
           );
           
-      }, [id]);
+      }, [params.id]);
       
      
-     function handleReviewArray(newReviewArray) {
+     function handleAddArray(newReviewArray) {
          addReview(newReviewArray)
          setReview(newReviewArray)
      }
+     function handleDeleteArray(newReviewArray) {
+        removeReview(newReviewArray)
+        setReview(newReviewArray)
+
+     }
+     
 
       const thisProduct = reviews.filter(rev => {
           
-         return rev.product_id == id
+         return rev.product.id == params.id
        
     }) 
     const reviewArray = thisProduct.map(review => {
-        return <ReviewCard key={review.id} review={review} currentUser={currentUser}/>
+        return <ReviewCard key={review.id} review={review} currentUser={currentUser} handleDeleteArray={handleDeleteArray}/>
 
     })
 
@@ -61,7 +67,10 @@ function ProductPage({reviews, currentUser, addReview}) {
               {reviewArray}
           </div>
           <div>
-              <ReviewForm currentUser={currentUser} product={productObj} addReview={addReview}handleReviewArray={handleReviewArray}/>
+              <ReviewForm currentUser={currentUser} 
+                          product={productObj} 
+                          addReview={addReview}
+                          handleAddArray={handleAddArray}/>
           </div>
         </section>
       );

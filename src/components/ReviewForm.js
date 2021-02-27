@@ -1,14 +1,14 @@
 
 import React, {useState} from 'react'
 
-function ReviewForm({currentUser, product, addReview, handleReviewArray}){
+function ReviewForm({currentUser, product, handleAddArray}){
 
     const [review, setReview] = useState("")
     // const [anonymous, setAnonymous] = useState(false)
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
 
- console.log(review)
+
 
     function handleSubmit(e){
         e.preventDefault()
@@ -28,7 +28,7 @@ function ReviewForm({currentUser, product, addReview, handleReviewArray}){
         })
             .then(res=>res.json())
             .then(reviewObj=>{
-                handleReviewArray(reviewObj)
+                handleAddArray(reviewObj)
             })
         
         // setReview("")

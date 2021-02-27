@@ -57,8 +57,11 @@ function App() {
   function addReview(reviewObj) {
     const newReviewArray = [...reviews, reviewObj]
     setReviews(newReviewArray)
-    
-}
+  }
+  function removeReview(id){
+    const newReviewArray = reviews.filter(review=>{return review.id !== id})
+  setReviews(newReviewArray)
+  }
 
 
 
@@ -79,7 +82,7 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          <ProductPage reviews={reviews} addReview={addReview} currentUser={currentUser}/>
+          <ProductPage reviews={reviews} addReview={addReview} removeReview={removeReview} currentUser={currentUser}/>
         </Route>
         <Route path="/products">
           <ProductsList 
