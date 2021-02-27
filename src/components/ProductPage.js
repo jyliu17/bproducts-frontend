@@ -6,12 +6,13 @@ import ReviewForm from "./ReviewForm"
 
 // import styled from "styled-components"
 
-function ProductPage({reviews, currentUser}) {
+function ProductPage({reviews, currentUser, addReview}) {
 
     const { id } = useParams();
     const [productObj, setProductObj] = useState({})
+    const [review, setReview] = useState("")
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
-    const [reviewsArray,setReviewsArray] = useState([])
+    
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${id}`)
@@ -24,11 +25,10 @@ function ProductPage({reviews, currentUser}) {
       }, [id]);
       
      
-      function addReview(reviewObj) {
-          const newReviewArray = [...reviewsArray, reviewObj]
-          setReviewsArray(newReviewArray)
-          
-      }
+     function handleReviewArray(newReviewArray) {
+         addReview(newReviewArray)
+         setReview(newReviewArray)
+     }
 
       const thisProduct = reviews.filter(rev => {
           
@@ -61,7 +61,7 @@ function ProductPage({reviews, currentUser}) {
               {reviewArray}
           </div>
           <div>
-              <ReviewForm currentUser={currentUser} product={productObj} addReview={addReview}/>
+              <ReviewForm currentUser={currentUser} product={productObj} addReview={addReview}handleReviewArray={handleReviewArray}/>
           </div>
         </section>
       );

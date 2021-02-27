@@ -15,6 +15,7 @@ function App() {
   const dispatch = useDispatch()
   const [currentUser, setCurrentUser] = useState(null)
   const [reviews, setReviews] = useState([])
+  // const [reviewsArray,setReviewsArray] = useState([])
 
     // autologin
     useEffect(() => {
@@ -53,6 +54,12 @@ function App() {
       );
   }, []);
 
+  function addReview(reviewObj) {
+    const newReviewArray = [...reviews, reviewObj]
+    setReviews(newReviewArray)
+    
+}
+
 
 
   return (
@@ -72,7 +79,7 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          <ProductPage reviews={reviews} currentUser={currentUser}/>
+          <ProductPage reviews={reviews} addReview={addReview} currentUser={currentUser}/>
         </Route>
         <Route path="/products">
           <ProductsList 

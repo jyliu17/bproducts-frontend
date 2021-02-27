@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react'
 
-function ReviewForm({currentUser, product, addReview}){
+function ReviewForm({currentUser, product, addReview, handleReviewArray}){
 
     const [review, setReview] = useState("")
     // const [anonymous, setAnonymous] = useState(false)
@@ -28,7 +28,7 @@ function ReviewForm({currentUser, product, addReview}){
         })
             .then(res=>res.json())
             .then(reviewObj=>{
-                addReview(reviewObj)
+                handleReviewArray(reviewObj)
             })
         
         // setReview("")
