@@ -4,14 +4,17 @@ import { useHistory } from "react-router-dom";
 function Login({setCurrentUser}) {
     
 
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
         username: "",
         password: "",
     })
-    const [errors, setErrors] = useState([]);
-    const history = useHistory();
+  const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
-    function handleSubmit(event) {
+  function handleChange(event){
+        setFormData({ ...formData, [event.target.name]: event.target.value });
+    }
+  function handleSubmit(event) {
         event.preventDefault()
     
     fetch("http://localhost:3000/login", {
@@ -23,7 +26,7 @@ function Login({setCurrentUser}) {
         })
         .then((r) => r.json())
         .then(userObj => {
-            console.log(userObj)
+       
         if (userObj.errors) {
           setErrors(userObj.errors)
         } else {
@@ -33,11 +36,7 @@ function Login({setCurrentUser}) {
         })
     }
 
-    function handleChange(event){
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-    }
-
-    return (
+  return (
         <div>
           <form onSubmit={handleSubmit} autoComplete="off">
             <h3>Login</h3>

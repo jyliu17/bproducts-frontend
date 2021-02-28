@@ -7,6 +7,7 @@ function NavBar({ currentUser, setCurrentUser}) {
     setCurrentUser(null);
     history.push('/login');
   }
+  console.log(currentUser)
   
   return (
     <header>
@@ -14,7 +15,7 @@ function NavBar({ currentUser, setCurrentUser}) {
       <img className="logo" src="../mainLogo.png" alt=""/>
         {currentUser ?  (
           <>
-            <h1 className="welcome" >Welcome, {currentUser.username}!</h1>
+            <h1 className="welcome" >Welcome {currentUser.username}!</h1>
             <NavLink to="/profile">My Profile</NavLink>
             <NavLink to="/products">Products</NavLink>
             <NavLink to="/favorites">My Favorites</NavLink>

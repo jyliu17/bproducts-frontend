@@ -6,7 +6,7 @@ import ReviewForm from "./ReviewForm"
 
 // import styled from "styled-components"
 
-function ProductPage({reviews, currentUser, addReview, removeReview}) {
+function ProductPage({reviews, currentUser, addReview, removeReview, updateReview}) {
 
     const params = useParams();
     const [productObj, setProductObj] = useState({})
@@ -25,14 +25,17 @@ function ProductPage({reviews, currentUser, addReview, removeReview}) {
       }, [params.id]);
       
      
-     function handleAddArray(newReviewArray) {
+     function handleAddReview(newReviewArray) {
          addReview(newReviewArray)
          setReview(newReviewArray)
      }
-     function handleDeleteArray(newReviewArray) {
+     function handleDeleteReview(newReviewArray) {
         removeReview(newReviewArray)
         setReview(newReviewArray)
-
+     }
+     function handleUpdateReview(newReviewArray) {
+        updateReview(newReviewArray)
+        setReview(newReviewArray)
      }
      
 
@@ -42,7 +45,8 @@ function ProductPage({reviews, currentUser, addReview, removeReview}) {
        
     }) 
     const reviewArray = thisProduct.map(review => {
-        return <ReviewCard key={review.id} review={review} currentUser={currentUser} handleDeleteArray={handleDeleteArray}/>
+        return <ReviewCard key={review.id} review={review} currentUser={currentUser} 
+                            handleDeleteReview={handleDeleteReview} handleUpdateReview={handleUpdateReview}/>
 
     })
 
@@ -70,7 +74,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview}) {
               <ReviewForm currentUser={currentUser} 
                           product={productObj} 
                           addReview={addReview}
-                          handleAddArray={handleAddArray}/>
+                          handleAddReview={handleAddReview}/>
           </div>
         </section>
       );

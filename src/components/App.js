@@ -63,6 +63,18 @@ function App() {
   setReviews(newReviewArray)
   }
 
+  function updateReview(updatedReview) {
+    const updatedReviewList = reviews.map((review) => {
+      if (review.id === updatedReview.id) {
+        return updatedReview;
+      } else {
+        return review;
+      }
+    });
+ 
+    setReviews(updatedReviewList);
+  } 
+
 
 
   return (
@@ -82,7 +94,11 @@ function App() {
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/products/:id">
-          <ProductPage reviews={reviews} addReview={addReview} removeReview={removeReview} currentUser={currentUser}/>
+          <ProductPage reviews={reviews} 
+                       addReview={addReview} 
+                       removeReview={removeReview} 
+                       currentUser={currentUser}
+                       updateReview={updateReview}/>
         </Route>
         <Route path="/products">
           <ProductsList 

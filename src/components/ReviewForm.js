@@ -1,9 +1,8 @@
 
 import React, {useState} from 'react'
 
-function ReviewForm({currentUser, product, handleAddArray}){
+function ReviewForm({currentUser, product, handleAddReview}){
 
-    const [review, setReview] = useState("")
     // const [anonymous, setAnonymous] = useState(false)
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
@@ -28,7 +27,7 @@ function ReviewForm({currentUser, product, handleAddArray}){
         })
             .then(res=>res.json())
             .then(reviewObj=>{
-                handleAddArray(reviewObj)
+                handleAddReview(reviewObj)
             })
         
         // setReview("")
