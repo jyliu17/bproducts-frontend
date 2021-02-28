@@ -7,7 +7,7 @@ function NavBar({ currentUser, setCurrentUser}) {
     setCurrentUser(null);
     history.push('/login');
   }
-  console.log(currentUser)
+ 
   
   return (
     <header>

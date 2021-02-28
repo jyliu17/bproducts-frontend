@@ -1,10 +1,11 @@
 import React, {  } from 'react'
-import { useSelector } from 'react-redux'
+import {  } from 'react-redux'
 import ProductCard from './ProductCard'
+import Search from "./Search"
 
-function ProductsList(params) {
+function ProductsList({products, productSearch, setProductSearch }) {
 
-    const products = useSelector(state => state.product.products)
+    // const products = useSelector(state => state.product.products)
     const strollers = products.filter(prod => {
   
         return prod.category.id === 1
@@ -16,10 +17,13 @@ function ProductsList(params) {
     })
 
     return (
+        <>
+        <Search productSearch={productSearch} setProductSearch={setProductSearch} />
         <div>
         <h1>Strollers</h1>
         {productsArray}
         </div>
+        </>
     )
     
 }

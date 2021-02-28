@@ -64,6 +64,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
             <p> Stroller Type : {type_of}</p>
             <p>Cost: {cost}</p>
             <p>Use up to: {time_of_use/12} years</p>
+            <a href="google.com/search?q=">link text</a>
           </div>
 
           <h2> Reviews </h2>

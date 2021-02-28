@@ -7,7 +7,7 @@ import ProductPage from "./ProductPage";
 import Login from "./Login";
 import Profile from "./Profile";
 import Signup from "./Signup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../redux/productSlice";
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
   const dispatch = useDispatch()
   const [currentUser, setCurrentUser] = useState(null)
   const [reviews, setReviews] = useState([])
-  // const [reviewsArray,setReviewsArray] = useState([])
+  const [productSearch, setProductSearch] = useState("");
+  const products = useSelector(state => state.product.products)
+
 
     // autologin
     useEffect(() => {
@@ -74,7 +76,10 @@ function App() {
  
     setReviews(updatedReviewList);
   } 
-
+  const filteredProducts = products.filter((product) => {
+    console.log(products)
+    return product.name.toLowerCase().includes(productSearch.toLowerCase())
+  });
 
 
   return (
@@ -102,8 +107,9 @@ function App() {
         </Route>
         <Route path="/products">
           <ProductsList 
-            // productSearch={productSearch}
-            // setProductSearch={setProductSearch}
+            products={filteredProducts}
+            productSearch={productSearch}
+            setProductSearch={setProductSearch}
             // handleAddProduct={handleAddProduct}
             // handleFormClick={handleFormClick}
             // setShowForm={setShowForm}
@@ -116,11 +122,11 @@ function App() {
         </Route>
         <Route path="/favorites">
           {/* <Favorites
-            key='myFav'
-            onRemoveFromFav={onRemoveFromFav}
-            currentUser={currentUser}
-            favs={favs}
-            setFavs={setFavs}
+            key='myFav' */}
+            {/* currentUser={currentUser}
+            // onRemoveFromFav={onRemoveFromFav}
+            // favs={favs}
+            // setFavs={setFavs}
             /> */}
         </Route>
       </Switch>
