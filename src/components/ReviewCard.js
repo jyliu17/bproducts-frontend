@@ -27,6 +27,7 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
     const [newComment, setNewComment] = useState(review.comment)
     const [newRating, setNewRating] = useState(review.rating)
     
+
     
     function handleSubmit(e) {
         e.preventDefault()
@@ -34,8 +35,8 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
         fetch(`http://localhost:3000/reviews/${review.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"Comment": newComment,
-                   "Rating": newRating   })
+            body: JSON.stringify({"comment": newComment,
+                   "rating": newRating   })
         })
             .then(res=>res.json())
             .then(updatedRev=> {
@@ -89,8 +90,8 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
                     <button onClick={()=>setShowForm(state=>!state)}>{showForm ? "Nevermind" : "Update Review"}</button> 
                     <button onClick={handleDelete}>Delete Comment</button> 
                 </div> : null}
-        {/* {review.user.id === currentUser.id ? <button onClick={handleFormClick}>Edit Review</button> : null}
-        {review.user.id === currentUser.id ? <button onClick={handleDelete}>Delete Review</button> : null} */}
+        {/* {review.user.id === currentUser.id ? <button onClick={handleFormClick}>Edit Review</button> : null} */}
+        {/* {review.user.id === currentUser.id ? <button onClick={handleDelete}>Delete Review</button> : null} */}
         
         </div>
     )   

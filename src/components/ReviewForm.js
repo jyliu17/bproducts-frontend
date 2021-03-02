@@ -47,7 +47,7 @@ function ReviewForm({currentUser, product, handleAddReview}){
             <div className="comment-form-bottom">
                 {/* <label htmlFor="anonymous">Post Anonymously?</label>
                 <input type="checkbox" name="anonymous" value={anonymous} onChange={(e)=>setAnonymous(e.target.checked)} /> */}
-                <button type="submit">Create Comment</button>
+                <button type="submit">Submit</button>
             </div>
             </form>
         </div>

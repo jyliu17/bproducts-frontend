@@ -4,9 +4,16 @@ import { Link } from "react-router-dom";
 import styled from "styled-components"
 // import { useHistory } from 'react-router-dom'
 
+function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favorites}) {
 
 
-function ProductCard({product}) {
+    function handleClick(e){
+        if (e.target.innerText === "Remove Favorite"){
+            handleRemoveFav(product)
+        } else {
+            handleAddFav(product)
+        }  
+    }
 
     const {id, name, brand, cost, time_of_use, image } = product
 
@@ -23,9 +30,9 @@ function ProductCard({product}) {
         <p> Up to: {time_of_use / 12} years</p>
         
         <br></br>
-        {/* {currentUser ?
-            <button onClick={handleClick}>{favs.find(f=>f.baker.id === id) ? "Remove Favorite" : "Add to My Favorites"}</button>
-            : null
+        {/* {currentUser ? */}
+            <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "Remove Favorite" : "Add to My Favorites"}</button>
+            {/* : null
         } */}
         </Card>
     )
@@ -45,8 +52,6 @@ const Card = styled.div`
   padding: 5px;
   border: 1px solid black;
   border-radius: 6px;
- 
-
   :hover {
       transform: scale(1.05);
       box-shadow: 2px 5px trasparent;

@@ -11,7 +11,10 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
     const params = useParams();
     const [productObj, setProductObj] = useState({})
     const [review, setReview] = useState("")
+    const [showForm, setShowForm] = useState(false)
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
+    
+    // const searchText = productObj.name
     
 
     useEffect(() => {
@@ -25,24 +28,26 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
       }, [params.id]);
       
      
-     function handleAddReview(newReviewArray) {
-         addReview(newReviewArray)
-         setReview(newReviewArray)
-     }
-     function handleDeleteReview(newReviewArray) {
+    function handleAddReview(newReviewArray) {
+        addReview(newReviewArray)
+        setReview(newReviewArray)
+    }
+    function handleDeleteReview(newReviewArray) {
         removeReview(newReviewArray)
         setReview(newReviewArray)
-     }
-     function handleUpdateReview(newReviewArray) {
+    }
+    function handleUpdateReview(newReviewArray) {
         updateReview(newReviewArray)
         setReview(newReviewArray)
-     }
-     
+    }
+    function handleFormClick() {
+      setShowForm(showForm => !showForm)
+    }
 
       const thisProduct = reviews.filter(rev => {
           
-         return rev.product.id == params.id
-       
+        return rev.product.id == params.id
+    
     }) 
     const reviewArray = thisProduct.map(review => {
         return <ReviewCard key={review.id} review={review} currentUser={currentUser} 
@@ -64,18 +69,22 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
             <p> Stroller Type : {type_of}</p>
             <p>Cost: {cost}</p>
             <p>Use up to: {time_of_use/12} years</p>
-            <a href="google.com/search?q=">link text</a>
+            <br></br>
+            <a href="">Search available retailers.</a>
           </div>
 
           <h2> Reviews </h2>
           <div>
               {reviewArray}
           </div>
+          <br></br>
           <div>
-              <ReviewForm currentUser={currentUser} 
+            {showForm ? <button onClick={handleFormClick}>Hide Form</button> :
+                        <button onClick={handleFormClick}>New Review</button>}
+            {showForm ?  <ReviewForm currentUser={currentUser} 
                           product={productObj} 
                           addReview={addReview}
-                          handleAddReview={handleAddReview}/>
+                          handleAddReview={handleAddReview} />: null }
           </div>
         </section>
       );

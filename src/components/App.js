@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
 import ProductPage from "./ProductPage";
-// import Favorites from "./Favorites";
+import FavoritesList from "./FavoritesList";
 import Login from "./Login";
 import Profile from "./Profile";
 import Signup from "./Signup";
@@ -15,11 +15,14 @@ function App() {
   const dispatch = useDispatch()
   const [currentUser, setCurrentUser] = useState(null)
   const [reviews, setReviews] = useState([])
+  const [favorites, setFavorites] = useState([]);
   const [productSearch, setProductSearch] = useState("");
+
   const products = useSelector(state => state.product.products)
 
 
-    // autologin
+
+  // autologin
     useEffect(() => {
       // TODO: check if there'a token for the logged in user
       // GET /me
@@ -56,6 +59,86 @@ function App() {
       );
   }, []);
 
+  useEffect(() => {
+    if (currentUser) {
+    fetch(`http://localhost:3000/users/${currentUser.id}`)
+        .then(r => r.json())
+        .then(userObj=> { 
+          console.log(userObj.favorites)
+            setFavorites(userObj.favorites)
+          
+        })
+    }
+  }, [currentUser]);
+
+  function renderFavorites(obj) {
+    const newFavs = [...favorites, obj];
+    setFavorites(newFavs);
+  }
+
+  function handleAddFav(addedProduct) {
+    // console.log(addedFavorite);
+  
+    let newFav = { user_id: currentUser.id, product_id: addedProduct.id };
+    if (favorites.find(f => f.product.id === addedProduct.id)) {
+      alert('The selected item already exists in your favorite!');
+    } else {
+      fetch(`http://localhost:3000/favorites`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newFav),
+      })
+        .then(r => r.json())
+        .then(favData => renderFavorites(favData))
+    }
+  };
+
+  function handleAddFav(addedProduct) {
+    // console.log(addedFavorite);
+  
+    let newFav = { user_id: currentUser.id, product_id: addedProduct.id };
+    if (favorites.find(f => f.product.id === addedProduct.id)) {
+      alert('The selected item already exists in your favorite!');
+    } else {
+      fetch(`http://localhost:3000/favorites`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newFav),
+      })
+        .then(r => r.json())
+        .then(favData => renderFavorites(favData))
+    }
+  };
+
+  function handleRemoveFav(removedProduct) {
+    if (favorites.length > 0) {
+      let favToDelete = favorites.find(f => f.product_id === removedProduct.id);
+      const id = favToDelete.id;
+      // console.log(id);
+      fetch(`http://localhost:3000/favorites/${id}`, {
+        method: 'Delete',
+      });
+    };
+    const removeArr = favorites.filter(f => f.product.id !== removedProduct.id)
+    setFavorites(removeArr);
+  };
+
+function onRemoveFromFav(id) {
+  //**optimistic rendering**
+  const removeArr = favorites.filter(fav => fav.id !== id)
+  setFavorites(removeArr);
+
+  fetch(`http://localhost:3000/favorites/${id}`, {
+    method: 'Delete',
+  });
+};
+
+
+
   function addReview(reviewObj) {
     const newReviewArray = [...reviews, reviewObj]
     setReviews(newReviewArray)
@@ -77,8 +160,10 @@ function App() {
     setReviews(updatedReviewList);
   } 
   const filteredProducts = products.filter((product) => {
-    console.log(products)
-    return product.name.toLowerCase().includes(productSearch.toLowerCase())
+    
+    return product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
+    product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
+    product.type_of.toLowerCase().includes(productSearch.toLowerCase()) 
   });
 
 
@@ -114,20 +199,20 @@ function App() {
             // handleFormClick={handleFormClick}
             // setShowForm={setShowForm}
             // showForm={showForm}
-            // onAdded={handleAddFav}
-            // onRemoved={handleRemoveFav}
-            // currentUser={currentUser}
-            // favs={favs}
+            handleAddFav={handleAddFav}
+            handleRemoveFav={handleRemoveFav}
+            currentUser={currentUser}
+            favorites={favorites}
           />
         </Route>
         <Route path="/favorites">
-          {/* <Favorites
-            key='myFav' */}
-            {/* currentUser={currentUser}
-            // onRemoveFromFav={onRemoveFromFav}
-            // favs={favs}
-            // setFavs={setFavs}
-            /> */}
+          <FavoritesList
+            key='myFav'
+            currentUser={currentUser}
+            onRemoveFromFav={onRemoveFromFav}
+            favorites={favorites}
+            setFavorites={setFavorites}
+            />
         </Route>
       </Switch>
     </main>
