@@ -5,7 +5,7 @@ function Profile({ currentUser, setCurrentUser }) {
   
   const [formData, setFormData] = useState({
     username: currentUser.username,
-    password: "",
+    password: currentUser.password,
     email: currentUser.email,
   });
   const { username, password, email } = formData;
@@ -52,7 +52,7 @@ function Profile({ currentUser, setCurrentUser }) {
       <label>Email</label>
       <textarea type="text" name="email" value={email} onChange={handleChange} />
 
-      <input type="submit" value="Update" />
+      <button>Update</button> 
     </form>
   );
 }

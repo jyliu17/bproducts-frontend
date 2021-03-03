@@ -26,6 +26,7 @@ function NavBar({ currentUser, setCurrentUser}) {
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>
             <NavLink to="/products">Products</NavLink>
+          
           </>
           )}
 

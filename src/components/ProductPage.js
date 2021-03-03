@@ -14,8 +14,9 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
     const [showForm, setShowForm] = useState(false)
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
     
-    // const searchText = productObj.name
     
+    const searchText = {brand}.value
+    const link = ("https://shopping.google.com/search?q=" + {brand});
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${params.id}`)
@@ -63,21 +64,16 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
           <div>
             <br></br>
             <h1>{name}</h1>
-            <img src={image} alt={name} style={{ height: 400, width:400 }}/>
+            <img src={image} alt={name} style={{ height: 300, width:300 }}/>
             <p>{description}</p>
             <p>Made by: {brand}</p>
             <p> Stroller Type : {type_of}</p>
-            <p>Cost: {cost}</p>
+            <p>Cost: ${cost}</p>
             <p>Use up to: {time_of_use/12} years</p>
             <br></br>
-            <a href="">Search available retailers.</a>
-          </div>
-
-          <h2> Reviews </h2>
-          <div>
-              {reviewArray}
-          </div>
-          <br></br>
+            <a href={link} target="_blank">Search available retailers.</a>
+          </div>      
+          <br></br>    
           <div>
             {showForm ? <button onClick={handleFormClick}>Hide Form</button> :
                         <button onClick={handleFormClick}>New Review</button>}
@@ -86,6 +82,12 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
                           addReview={addReview}
                           handleAddReview={handleAddReview} />: null }
           </div>
+          <h2> Reviews </h2>
+          <div>
+              {reviewArray}
+          </div>
+          <br></br>
+          
         </section>
       );
 }

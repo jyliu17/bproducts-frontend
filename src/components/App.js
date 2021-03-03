@@ -17,6 +17,7 @@ function App() {
   const [reviews, setReviews] = useState([])
   const [favorites, setFavorites] = useState([]);
   const [productSearch, setProductSearch] = useState("");
+  const [filter, setFilter] = useState("all")
 
   const products = useSelector(state => state.product.products)
 
@@ -64,7 +65,6 @@ function App() {
     fetch(`http://localhost:3000/users/${currentUser.id}`)
         .then(r => r.json())
         .then(userObj=> { 
-          console.log(userObj.favorites)
             setFavorites(userObj.favorites)
           
         })
@@ -195,14 +195,16 @@ function onRemoveFromFav(id) {
             products={filteredProducts}
             productSearch={productSearch}
             setProductSearch={setProductSearch}
+            handleAddFav={handleAddFav}
+            handleRemoveFav={handleRemoveFav}
+            currentUser={currentUser}
+            favorites={favorites} 
+            filter={filter} 
+            setFilter={setFilter}
             // handleAddProduct={handleAddProduct}
             // handleFormClick={handleFormClick}
             // setShowForm={setShowForm}
             // showForm={showForm}
-            handleAddFav={handleAddFav}
-            handleRemoveFav={handleRemoveFav}
-            currentUser={currentUser}
-            favorites={favorites}
           />
         </Route>
         <Route path="/favorites">

@@ -8,7 +8,7 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
 
 
     function handleClick(e){
-        if (e.target.innerText === "Remove Favorite"){
+        if (e.target.innerText === "⭐️"){
             handleRemoveFav(product)
         } else {
             handleAddFav(product)
@@ -31,7 +31,7 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         
         <br></br>
         {/* {currentUser ? */}
-            <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "Remove Favorite" : "Add to My Favorites"}</button>
+            <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button>
             {/* : null
         } */}
         </Card>
