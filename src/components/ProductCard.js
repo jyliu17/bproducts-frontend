@@ -30,10 +30,10 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         <p> Up to: {time_of_use / 12} years</p>
         
         <br></br>
-        {/* {currentUser ? */}
+        {currentUser ?
             <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button>
-            {/* : null
-        } */}
+            : null
+        } 
         </Card>
     )
     

@@ -15,8 +15,8 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
     const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
     
     
-    const searchText = {brand}.value
-    const link = ("https://shopping.google.com/search?q=" + {brand});
+    const searchText = brand + " " + name
+    const link = ("https://shopping.google.com/search?q=" + searchText);
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${params.id}`)
