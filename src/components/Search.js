@@ -16,12 +16,8 @@ function Search({productSearch, setProductSearch, filter, setFilter}) {
             onChange={(e) => setProductSearch(e.target.value)}/>
         </div>
          <div className="search-filter">
-            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-                <option value="all">All</option>
-                <option value="$" > Less Expensive</option>
-                <option value="$$" > Average Prce</option>
-                <option value="$$$" >Expensive</option>
-            </select>
+              
+                <input type="checkbox" value="$$" /> Less Expensive&nbsp;&nbsp;
           </div>
       </>
       );

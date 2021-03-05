@@ -17,7 +17,7 @@ function App() {
   const [reviews, setReviews] = useState([])
   const [favorites, setFavorites] = useState([]);
   const [productSearch, setProductSearch] = useState("");
-  const [filter, setFilter] = useState("all")
+  const [filter, setFilter] = useState([])
 
   const products = useSelector(state => state.product.products)
 
@@ -165,6 +165,10 @@ function onRemoveFromFav(id) {
     product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.type_of.toLowerCase().includes(productSearch.toLowerCase()) 
   });
+
+  const lessExpensive = products.filter(product => {
+    return 
+  })
 
 
   return (

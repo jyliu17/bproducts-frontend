@@ -2,27 +2,24 @@ import React, { useState } from "react";
 
 function Profile({ currentUser, setCurrentUser }) {
 
+  const [username, setUsername] = useState(currentUser.username)
+  const [password, setPassword] = useState(currentUser.password)
+  const [email, setEmail] = useState(currentUser.email);
   
-  const [formData, setFormData] = useState({
-    username: currentUser.username,
-    password: currentUser.password,
-    email: currentUser.email,
-  });
-  const { username, password, email } = formData;
-
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const formData = {
+    username: username,
+    password: password,
+    email: email,
   }
+
+ 
 
   function handleSubmit(e) {
     e.preventDefault();
 
     // PATCH /me { image, bio }
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/self", {
+    fetch(`http://localhost:3000/users/${currentUser.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -43,14 +40,14 @@ function Profile({ currentUser, setCurrentUser }) {
       <h1> {currentUser.username}'s profile</h1>
 
       <label>Username</label>
-      <input type="text" name="username" value={username} onChange={handleChange} />
+      <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
       
       <label>Password</label>
-      <input type="text" name="password" value={password} onChange={handleChange} />
+      <input type="hidden text" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       
 
       <label>Email</label>
-      <textarea type="text" name="email" value={email} onChange={handleChange} />
+      <textarea type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
       <button>Update</button> 
     </form>
