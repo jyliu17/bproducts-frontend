@@ -1,6 +1,14 @@
 import React, { useState } from "react";
+import { Checkbox, Collapse } from 'antd';
+
 
 function Search({productSearch, setProductSearch, filter, setFilter}) {
+
+
+
+  function handleToggle(){
+
+  }
 
     return (
 
@@ -15,10 +23,17 @@ function Search({productSearch, setProductSearch, filter, setFilter}) {
             value={productSearch}
             onChange={(e) => setProductSearch(e.target.value)}/>
         </div>
-         <div className="search-filter">
-              
-                <input type="checkbox" value="$$" /> Less Expensive&nbsp;&nbsp;
+        <hr></hr>
+         <div className="checkbox">
+              <Checkbox 
+                  value="$$"
+                  onChange={(e) => setFilter(e.target.value)}
+                  type="checkbox"
+               
+              />Less Expensive
+                {/* <input type="checkbox" value="$$" /> Less Expensive&nbsp;&nbsp; */}
           </div>
+          <hr></hr>
       </>
       );
 
