@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+
+
 // import { Link } from "react-router-dom";
 // import styled from "styled-components"
 
@@ -69,14 +71,14 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
   }
 
  
- 
+  
 
     return (
       <div>
-        <h3>{comment}</h3><p> -{user.username}</p>
+        <h4 className="timestamp">{comment}</h4><p> -{user.username}</p> 
         <p> Rating: {rating}</p>
        
-        
+
         {rating === 1 ? "⭐️" : null}
         {rating === 2 ? "⭐️⭐️" : null}
         {rating === 3 ? "⭐️⭐️⭐️" : null}
@@ -84,7 +86,7 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
         {rating === 5 ? "⭐️⭐️⭐️⭐️⭐️" : null}
         <br></br>
 
-        {review.user_id === currentUser.id ? 
+        {review.user.id === currentUser.id ? 
                 <div >
                     {showForm ? <UpdateReviewForm />: null}
                     <button onClick={()=>setShowForm(state=>!state)}>{showForm ? "Nevermind" : "Update Review"}</button> 

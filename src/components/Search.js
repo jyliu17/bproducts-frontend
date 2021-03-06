@@ -21,10 +21,10 @@ function Search({productSearch, setProductSearch, filter, setFilter}) {
             onChange={(e) => setProductSearch(e.target.value)}/>
         </div>
         <hr></hr>
-        <div className="nav-filter">
+        <div className="nav-filter" >
           <select value={filter} onChange={(e) => setFilter(e.target.value)}>
               <option value="all">All</option>
-              <option value="$$" >Under $250 </option>
+              <option value="$" >Under $250 </option>
               <option value="$$" >$250 - $500</option>
               <option value="$$$" >$500 - $1000</option>
               <option value="$$$$" >Over $1000</option>

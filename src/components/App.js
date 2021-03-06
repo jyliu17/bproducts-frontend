@@ -17,7 +17,7 @@ function App() {
   const [reviews, setReviews] = useState([])
   const [favorites, setFavorites] = useState([]);
   const [productSearch, setProductSearch] = useState("");
-  const [filter, setFilter] = useState([])
+  const [filter, setFilter] = useState("all")
   const products = useSelector(state => state.product.products)
 
 
@@ -74,7 +74,7 @@ function App() {
   }
 
   function handleAddFav(addedProduct) {
-    // console.log(addedFavorite);
+  
   
     let newFav = { user_id: currentUser.id, product_id: addedProduct.id };
     if (favorites.find(f => f.product.id === addedProduct.id)) {
@@ -92,24 +92,6 @@ function App() {
     }
   };
 
-  function handleAddFav(addedProduct) {
-    // console.log(addedFavorite);
-  
-    let newFav = { user_id: currentUser.id, product_id: addedProduct.id };
-    if (favorites.find(f => f.product.id === addedProduct.id)) {
-      alert('The selected item already exists in your favorite!');
-    } else {
-      fetch(`http://localhost:3000/favorites`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newFav),
-      })
-        .then(r => r.json())
-        .then(favData => renderFavorites(favData))
-    }
-  };
 
   function handleRemoveFav(removedProduct) {
     if (favorites.length > 0) {

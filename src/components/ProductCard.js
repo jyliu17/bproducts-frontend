@@ -1,4 +1,3 @@
-
 import React, { } from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components"
@@ -30,9 +29,9 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         <p> Up to: {time_of_use / 12} years</p>
         
         <br></br>
-        {currentUser ?
+        {!currentUser ? null :
             <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button> 
-             : null
+        
         } 
         </Card>
     )

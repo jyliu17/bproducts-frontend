@@ -72,12 +72,13 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
             <p>Cost: ${cost}</p>
             <p>Use up to: {time_of_use/12} years</p>
             <br></br>
-            <a href={link} target="_blank">Search available retailers.</a>
+            <a href={link} target="_blank"><h3 color="green">Search available retailers</h3></a>
           </div> 
+          <br></br>
           <div className="video">
                     <ReactPlayer
-                        width={1100}
-                        height={460}
+                        width={700}
+                        height={400}
                         controls={true}
                         volume={0.2}
                         playing={true}
@@ -89,6 +90,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
           <div>
             {showForm ? <button onClick={handleFormClick}>Hide Form</button> :
                         <button onClick={handleFormClick}>New Review</button>}
+                       
             {showForm ?  <ReviewForm currentUser={currentUser} 
                           product={productObj} 
                           addReview={addReview}
