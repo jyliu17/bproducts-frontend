@@ -18,17 +18,15 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [productSearch, setProductSearch] = useState("");
   const [filter, setFilter] = useState([])
-
   const products = useSelector(state => state.product.products)
 
 
 
   // autologin
     useEffect(() => {
-      // TODO: check if there'a token for the logged in user
-      // GET /me
+    
       const token = localStorage.getItem("token");
-      if (token) {
+      
         fetch("http://localhost:3000/self", {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +37,7 @@ function App() {
             // set the user in state
             setCurrentUser(user);
           });
-      }
+      
     }, []);
 
   const API = "http://localhost:3000/products";
@@ -66,7 +64,6 @@ function App() {
         .then(r => r.json())
         .then(userObj=> { 
             setFavorites(userObj.favorites)
-          
         })
     }
   }, [currentUser]);
@@ -159,17 +156,18 @@ function onRemoveFromFav(id) {
  
     setReviews(updatedReviewList);
   } 
-  const filteredProducts = products.filter((product) => {
-    
+  
+  
+  let filteredProducts = products.filter((product) => {
     return product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.type_of.toLowerCase().includes(productSearch.toLowerCase()) 
   });
 
-  const lessExpensive = products.filter(product => {
-    return 
-  })
-
+  if (filter !== "all") {
+    filteredProducts = filteredProducts.filter(product => product.cost_range === filter) 
+  } 
+ 
 
   return (
     <>

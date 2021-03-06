@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard"
 import ReviewForm from "./ReviewForm"
+import ReactPlayer from "react-player"
 
 
 // import styled from "styled-components"
@@ -12,7 +13,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
     const [productObj, setProductObj] = useState({})
     const [review, setReview] = useState("")
     const [showForm, setShowForm] = useState(false)
-    const { name, type_of, brand, cost, time_of_use, description, image  } = productObj;
+    const { name, type_of, brand, cost, time_of_use, description, image, video  } = productObj;
     
     
     const searchText = brand + " " + name
@@ -72,7 +73,18 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
             <p>Use up to: {time_of_use/12} years</p>
             <br></br>
             <a href={link} target="_blank">Search available retailers.</a>
-          </div>      
+          </div> 
+          <div className="video">
+                    <ReactPlayer
+                        width={1100}
+                        height={460}
+                        controls={true}
+                        volume={0.2}
+                        playing={true}
+                        muted={true}
+                        url={video}
+                    />
+                </div>     
           <br></br>    
           <div>
             {showForm ? <button onClick={handleFormClick}>Hide Form</button> :

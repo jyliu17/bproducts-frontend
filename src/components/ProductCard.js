@@ -31,8 +31,8 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         
         <br></br>
         {currentUser ?
-            <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button>
-            : null
+            <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button> 
+             : null
         } 
         </Card>
     )

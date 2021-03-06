@@ -20,9 +20,9 @@ function Login({setCurrentUser}) {
     fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
         })
         .then((r) => r.json())
         .then(userObj => {
@@ -31,7 +31,9 @@ function Login({setCurrentUser}) {
           setErrors(userObj.errors)
         } else {
           setCurrentUser(userObj)
+          localStorage.setItem("token", userObj.token)
           history.push(`/products`);
+          console.log(userObj.user)
         }
         })
     }

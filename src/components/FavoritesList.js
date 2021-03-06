@@ -6,7 +6,7 @@ function FavoritesList({ onRemoveFromFav, currentUser, favorites, setFavorites, 
 
 
     const favoritesArray = favorites.map(fav => {
-console.log(fav.product)
+
         return <FavoriteItem key={fav.id} 
                              favId={fav.id} 
                              product={fav.product} 
