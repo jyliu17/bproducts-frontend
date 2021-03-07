@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox, Collapse } from 'antd';
+
 
 
 function Search({productSearch, setProductSearch, filter, setFilter}) {
