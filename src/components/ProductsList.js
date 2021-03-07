@@ -45,11 +45,11 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
             </Switch>
         </main> */}
          <LINK>
-        <Link style={{ color:"white" }} to={"/strollers"}>Strollers </Link>
+        <h1><Link style={{ color:"white" }} to={"/strollers"}>Strollers </Link></h1>
         </LINK>
         {strollersArray}
         <LINK>
-        <Link style={{ color:"white" }} to={"/carseats"}>Car Seats </Link>
+        <h1><Link style={{ color:"white" }} to={"/carseats"}>Car Seats </Link></h1>
         </LINK>
         {carseatsArray}
                  

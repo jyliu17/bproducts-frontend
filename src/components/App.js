@@ -180,7 +180,6 @@ function onRemoveFromFav(id) {
         <Route path="/products">
           <ProductsList 
             products={filteredProducts}
-            
             handleAddFav={handleAddFav}
             handleRemoveFav={handleRemoveFav}
             currentUser={currentUser}
