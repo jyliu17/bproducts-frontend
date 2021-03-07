@@ -11,12 +11,12 @@ function Search({productSearch, setProductSearch, filter, setFilter}) {
 
       <>
         <div className="searchbar">
-          <label style={{ color:"white" }} htmlFor="search">Search by Name</label>
+          <label style={{ color:"white" }} htmlFor="search">Search </label>
           <input
             style={{ border:'none', padding:'8px', marginLeft:'6px' }}
             type="text"
             id="search"
-            placeholder="Search..."
+            placeholder="by name, brand or type..."
             value={productSearch}
             onChange={(e) => setProductSearch(e.target.value)}/>
         </div>

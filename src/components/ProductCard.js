@@ -14,7 +14,7 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         }  
     }
 
-    const {id, name, brand, cost, time_of_use, image } = product
+    const {id, name, brand, cost, time_of_use, type_of, image } = product
 
     return (
         <Card>
@@ -26,12 +26,12 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         </LinkStyle>
         <p> Brand: {brand}</p>
         <p> Cost: ${cost}</p>
+        <p> Type: {type_of}</p>
         <p> Up to: {time_of_use / 12} years</p>
         
         <br></br>
         {!currentUser ? null :
             <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button> 
-        
         } 
         </Card>
     )

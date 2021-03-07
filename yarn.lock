@@ -9852,6 +9852,11 @@
   "resolved" "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
   "version" "3.2.0"
 
+"react-horizontal-scroll-container@^1.0.1":
+  "integrity" "sha512-OLwy3ezXOwJbuWfG3mPbMWkwrhahbEKWSIMulw50xRzt04aL2o5ITTDlYH0roVjRP4ogmagRYmFFdPK9QKK8aQ=="
+  "resolved" "https://registry.npmjs.org/react-horizontal-scroll-container/-/react-horizontal-scroll-container-1.0.1.tgz"
+  "version" "1.0.1"
+
 "react-is@^16.12.0", "react-is@^16.13.1", "react-is@^16.6.0", "react-is@^16.7.0", "react-is@^16.8.1", "react-is@>= 16.8.0":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
