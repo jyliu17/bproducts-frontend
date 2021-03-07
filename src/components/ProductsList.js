@@ -1,21 +1,34 @@
 import React, {  } from 'react'
 import {  } from 'react-redux'
-import ProductCard from './ProductCard'
-import Search from "./Search"
-import CheckBox from "./CheckBox"
+import styled from "styled-components"
+import {Link} from "react-router-dom"
+import ProductCard from "./ProductCard"
 
 
-function ProductsList({products, productSearch, setProductSearch, handleAddFav, handleRemoveFav, currentUser, favorites, filter, setFilter }) {
+
+
+function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, favorites }) {
 
  
 
     const strollers = products.filter(prod => {
-  
         return prod.category.id === 1
     }) 
-    
+  
+    const strollersArray = strollers.map(prod => {
+        return <ProductCard key={prod.id} 
+                            product={prod} 
+                            handleAddFav={handleAddFav}
+                            handleRemoveFav={handleRemoveFav} 
+                            currentUser={currentUser}
+                            favorites={favorites}/>
+    })
 
-    const productsArray = strollers.map(prod => {
+
+    const carseats = products.filter(prod => {
+        return prod.category.id === 2
+    }) 
+      const carseatsArray = carseats.map(prod => {
         return <ProductCard key={prod.id} 
                             product={prod} 
                             handleAddFav={handleAddFav}
@@ -26,15 +39,31 @@ function ProductsList({products, productSearch, setProductSearch, handleAddFav, 
 
     return (
         <>
-        <Search productSearch={productSearch} setProductSearch={setProductSearch} filter={filter} setFilter={setFilter}/>
-        <CheckBox products={products} filter={filter} setFilter={setFilter}/>
-        <div>
-        <h1>Strollers</h1>
-        {productsArray}
-        </div>
+        {/* <main>
+            <Switch>
+             
+            </Switch>
+        </main> */}
+         <LINK>
+        <Link style={{ color:"white" }} to={"/strollers"}>Strollers </Link>
+        </LINK>
+        {strollersArray}
+        <LINK>
+        <Link style={{ color:"white" }} to={"/carseats"}>Car Seats </Link>
+        </LINK>
+        {carseatsArray}
+                 
         </>
     )
     
 }
 
 export default ProductsList
+
+const LINK = styled.div`
+    background-color: #8a6083;
+    background-color: black;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 16px; 
+`;

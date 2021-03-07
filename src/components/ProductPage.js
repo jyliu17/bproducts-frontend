@@ -57,8 +57,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
 
     })
 
-   
-
+  
 
       return (
         <section>
@@ -81,7 +80,7 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
                         height={400}
                         controls={true}
                         volume={0.2}
-                        playing={true}
+                        playing={false}
                         muted={true}
                         url={video}
                     />

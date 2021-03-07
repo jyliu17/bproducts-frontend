@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
+import StrollersList from "./StrollersList";
+import CarseatsList from "./CarseatsList";
 import ProductPage from "./ProductPage";
 import FavoritesList from "./FavoritesList";
 import Login from "./Login";
@@ -23,22 +25,22 @@ function App() {
 
 
   // autologin
-    useEffect(() => {
+    // useEffect(() => {
     
-      const token = localStorage.getItem("token");
+    //   const token = localStorage.getItem("token");
       
-        fetch("http://localhost:3000/self", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((r) => r.json())
-          .then((user) => {
-            // set the user in state
-            setCurrentUser(user);
-          });
+    //     fetch("http://localhost:3000/self", {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     })
+    //       .then((r) => r.json())
+    //       .then((user) => {
+    //         // set the user in state
+    //         setCurrentUser(user);
+    //       });
       
-    }, []);
+    // }, []);
 
   const API = "http://localhost:3000/products";
   useEffect(() => {
@@ -141,6 +143,7 @@ function onRemoveFromFav(id) {
   
   
   let filteredProducts = products.filter((product) => {
+  
     return product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
     product.type_of.toLowerCase().includes(productSearch.toLowerCase()) 
@@ -177,18 +180,39 @@ function onRemoveFromFav(id) {
         <Route path="/products">
           <ProductsList 
             products={filteredProducts}
-            productSearch={productSearch}
-            setProductSearch={setProductSearch}
+            
             handleAddFav={handleAddFav}
             handleRemoveFav={handleRemoveFav}
             currentUser={currentUser}
             favorites={favorites} 
-            filter={filter} 
-            setFilter={setFilter}
             // handleAddProduct={handleAddProduct}
             // handleFormClick={handleFormClick}
             // setShowForm={setShowForm}
             // showForm={showForm}
+          />
+        </Route>
+        <Route path="/strollers">
+          <StrollersList  products={filteredProducts}
+            productSearch={productSearch} 
+            setProductSearch={setProductSearch} 
+            handleAddFav={handleAddFav} 
+            handleRemoveFav={handleRemoveFav}
+            currentUser={currentUser} 
+            favorites={favorites} 
+            filter={filter} 
+            setFilter={setFilter}
+          />
+        </Route>
+        <Route path="/carseats">
+          <CarseatsList  products={filteredProducts}
+            productSearch={productSearch} 
+            setProductSearch={setProductSearch} 
+            handleAddFav={handleAddFav} 
+            handleRemoveFav={handleRemoveFav}
+            currentUser={currentUser} 
+            favorites={favorites} 
+            filter={filter} 
+            setFilter={setFilter}
           />
         </Route>
         <Route path="/favorites">

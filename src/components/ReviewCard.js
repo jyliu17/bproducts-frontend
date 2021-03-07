@@ -10,21 +10,8 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
   const [showForm, setShowForm] = useState(false)
   const { id, comment, rating,  user } = review
 
-  // const updatedReview = {}
-
-
-  // function handleUpdate(){
-    // fetch(`http://localhost:3000/reviews/${review.id}`,{
-    //   method: "PATCH",
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify(updatedReview)
-    // })
-    //   .then(res=>res.json())
-    //   .then(reviewObj=>{
-    //       handleUpdateReview(reviewObj)
-    //   })
-    
-  // }
+console.log(currentUser)
+console.log(review.user)
   function UpdateReviewForm() {
     const [newComment, setNewComment] = useState(review.comment)
     const [newRating, setNewRating] = useState(review.rating)
@@ -38,7 +25,7 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"comment": newComment,
-                   "rating": newRating   })
+                                  "rating": newRating   })
         })
             .then(res=>res.json())
             .then(updatedRev=> {
