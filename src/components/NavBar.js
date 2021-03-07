@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown"
 
 function NavBar({ currentUser, setCurrentUser}) {
 
-  const[click, setClick] = useState(false)
+  // const[click, setClick] = useState(false)
   const[dropdown, setDropdown] = useState(false)
   const history = useHistory();
 
@@ -37,15 +37,15 @@ function NavBar({ currentUser, setCurrentUser}) {
         {currentUser ?  (
           <>
             <h1 className="welcome" >Welcome {currentUser.username}!</h1>
+            <NavLink to="/"> Home</NavLink>
             <NavLink to="/profile">My Profile</NavLink>
             <NavLink to="/favorites">My Favorites</NavLink>
-
             <div 
             className='nav-item'
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             >
-            <NavLink to="/products">Products</NavLink>
+            <NavLink to="/products">Products </NavLink>
             {dropdown && <Dropdown />}
             </div>
 
@@ -53,6 +53,7 @@ function NavBar({ currentUser, setCurrentUser}) {
           </>
         ) : (
           <>
+            <NavLink to="/"> Home</NavLink>
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>
             <div

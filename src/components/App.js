@@ -11,6 +11,7 @@ import Profile from "./Profile";
 import Signup from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../redux/productSlice";
+import Home from "./Home";
 
 function App() {
 
@@ -25,22 +26,21 @@ function App() {
 
 
   // autologin
-    // useEffect(() => {
+    useEffect(() => {
     
-    //   const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
       
-    //     fetch("http://localhost:3000/self", {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     })
-    //       .then((r) => r.json())
-    //       .then((user) => {
-    //         // set the user in state
-    //         setCurrentUser(user);
-    //       });
+        fetch("http://localhost:3000/self", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((r) => r.json())
+          .then((user) => {
+            setCurrentUser(user);
+          });
       
-    // }, []);
+    }, []);
 
   const API = "http://localhost:3000/products";
   useEffect(() => {
@@ -159,6 +159,9 @@ function onRemoveFromFav(id) {
     <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}></NavBar>
     <main>
       <Switch>
+      <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/login">
           <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </Route>

@@ -37,7 +37,7 @@ function ReviewForm({currentUser, product, handleAddReview}){
     return (
         <div>
         <form className="review-form" onSubmit={handleSubmit}>
-            <label htmlFor="new-review">Leave a Review</label>
+            <label>Leave a Review</label>
             <br/>
             <h4>Comment</h4>
             <textarea className="comment-area" type="text" name="comment" row="7" value={comment} onChange={(e)=>setComment(e.target.value)}/>

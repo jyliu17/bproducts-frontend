@@ -67,11 +67,11 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
             <img src={image} alt={name} style={{ height: 300, width:300 }}/>
             <p>{description}</p>
             <p>Made by: {brand}</p>
-            <p> Stroller Type : {type_of}</p>
+            <p>Type: {type_of}</p>
             <p>Cost: ${cost}</p>
-            <p>Use up to: {time_of_use/12} years</p>
+            <p>Usage Time: {time_of_use/12} years</p>
             <br></br>
-            <a href={link} target="_blank"><h3 color="green">Search available retailers</h3></a>
+            <a href={link} target="_blank"rel="noreferrer"><h3 color="green">Search available retailers</h3></a>
           </div> 
           <br></br>
           <div className="video">
