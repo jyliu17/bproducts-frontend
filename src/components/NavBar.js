@@ -39,7 +39,7 @@ function NavBar({ currentUser, setCurrentUser}) {
       <div> 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <img className="logo" src="../mainLogo.png" alt=""/>
-        <Navbar.Brand href="/home">Title</Navbar.Brand>
+        <Navbar.Brand href="/home">Baby On Board</Navbar.Brand>
        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
         <Nav className="mr-auto">

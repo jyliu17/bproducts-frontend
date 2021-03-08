@@ -1,7 +1,7 @@
 import React, {  } from 'react'
 import {  } from 'react-redux'
 import styled from "styled-components"
-import {Link, useHistory} from "react-router-dom"
+import {Link, useHistory, useParams} from "react-router-dom"
 import ProductCard from "./ProductCard"
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -11,12 +11,13 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
 
 
 
-  const history = useHistory()
+    const history = useHistory()
+    const id = useParams()
 
     function onImgClick(m) {
         localStorage.setItem('id', m.id);
         // setDetailsMovieId(m.id)
-        history.push(`/products/${m.id}`)
+        history.push(`/products/${id}`)
       }
 
     const strollers = products.filter(prod => {
@@ -24,20 +25,12 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
     }) 
   
     const strollersArray = strollers.map(prod => {
-        return <Carousel.Item interval={4000} key={prod.id} onClick={(prod) => onImgClick(prod)}
-                            product={prod} 
+        return <Carousel.Item interval={5000} key={prod.id} onClick={(prod) => onImgClick(prod)}>
+                            <ProductCard product={prod} 
                             handleAddFav={handleAddFav}
                             handleRemoveFav={handleRemoveFav} 
                             currentUser={currentUser}
-                            favorites={favorites}>
-                            <img
-                            id={prod.id}
-                            search_id={prod.search_id}
-                            className="carousel-movie-poster"
-                            src={prod.image}
-                            alt={prod.name}
-                            />
-                            
+                            favorites={favorites}/>
                             </Carousel.Item>
     })
 
