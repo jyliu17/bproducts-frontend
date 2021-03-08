@@ -21,7 +21,7 @@ console.log(review.user)
     function handleSubmit(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/reviews/${review.id}`, {
+        fetch(`${process.env.REACT_APP_RAILS_URL}/reviews/${review.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"comment": newComment,
@@ -51,7 +51,7 @@ console.log(review.user)
 
 
   function handleDelete() {
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`${process.env.REACT_APP_RAILS_URL}/reviews/${id}`, {
       method: "DELETE"
     })
     handleDeleteReview(id)

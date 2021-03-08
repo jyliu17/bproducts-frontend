@@ -19,7 +19,7 @@ function Profile({ currentUser, setCurrentUser }) {
 
     // PATCH /me { image, bio }
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:3000/users/${currentUser.id}`, {
+    fetch(`${process.env.REACT_APP_RAILS_URL}/users/${currentUser.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

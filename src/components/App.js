@@ -30,7 +30,7 @@ function App() {
     
       const token = localStorage.getItem("token");
       
-        fetch("http://localhost:3000/self", {
+        fetch(`${process.env.REACT_APP_RAILS_URL}/self`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +42,7 @@ function App() {
       
     }, []);
 
-  const API = "http://localhost:3000/products";
+  const API = `${process.env.REACT_APP_RAILS_URL}/products`;
   useEffect(() => {
     fetch(API)
     .then(r => r.json())
@@ -52,7 +52,7 @@ function App() {
   }, [dispatch])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews`)
+    fetch(`${process.env.REACT_APP_RAILS_URL}/reviews`)
       .then((r) => r.json())
       .then((obj) => {
         setReviews(obj)
@@ -62,7 +62,7 @@ function App() {
 
   useEffect(() => {
     if (currentUser) {
-    fetch(`http://localhost:3000/users/${currentUser.id}`)
+    fetch(`${process.env.REACT_APP_RAILS_URL}/users/${currentUser.id}`)
         .then(r => r.json())
         .then(userObj=> { 
             setFavorites(userObj.favorites)
@@ -82,7 +82,7 @@ function App() {
     if (favorites.find(f => f.product.id === addedProduct.id)) {
       alert('The selected item already exists in your favorite!');
     } else {
-      fetch(`http://localhost:3000/favorites`, {
+      fetch(`${process.env.REACT_APP_RAILS_URL}/favorites`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ function App() {
       let favToDelete = favorites.find(f => f.product_id === removedProduct.id);
       const id = favToDelete.id;
       // console.log(id);
-      fetch(`http://localhost:3000/favorites/${id}`, {
+      fetch(`${process.env.REACT_APP_RAILS_URL}/favorites/${id}`, {
         method: 'Delete',
       });
     };
@@ -113,7 +113,7 @@ function onRemoveFromFav(id) {
   const removeArr = favorites.filter(fav => fav.id !== id)
   setFavorites(removeArr);
 
-  fetch(`http://localhost:3000/favorites/${id}`, {
+  fetch(`${process.env.REACT_APP_RAILS_URL}/favorites/${id}`, {
     method: 'Delete',
   });
 };

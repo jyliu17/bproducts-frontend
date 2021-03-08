@@ -48,8 +48,9 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
          <LINK>
         <h1><Link style={{ color:"white" }} to={"/strollers"}>Strollers </Link></h1>
         </LINK>
-        
+        <div class="scrolling-wrapper">
         {strollersArray}
+        </div>
         <LINK>
         <h1><Link style={{ color:"white" }} to={"/carseats"}>Car Seats </Link></h1>
         </LINK>
