@@ -38,14 +38,14 @@ const Card = styled.div`
   flex-direction: column;
   width: 260px;
   margin: 4%;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-buttom: 0px;
   padding: 5px;
   border: 1px solid black;
-  border-radius: 6px;
+  border-radius: 10px;
   :hover {
       transform: scale(1.05);
-      box-shadow: 2px 5px trasparent;
+      box-shadow: 2px 5px grey;
   }
 `;
 

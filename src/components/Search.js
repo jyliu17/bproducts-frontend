@@ -22,6 +22,7 @@ function Search({productSearch, setProductSearch, filter, setFilter}) {
         </div>
         <hr></hr>
         <div className="nav-filter" >
+        <label style={{ color:"white" }} htmlFor="cost filter"> Price  </label>
           <select value={filter} onChange={(e) => setFilter(e.target.value)}>
               <option value="all">All</option>
               <option value="$" >Under $250 </option>

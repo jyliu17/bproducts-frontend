@@ -16,18 +16,32 @@ code {
   display: inline block;
   flex-direction: column;
   width: 300px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 16px;
+  position: relative;
+  left:  40%;
+}
+.nav-filter{
+  background-color: #100e10;
+  border: 1px solid white;
+  display: inline block;
+  flex-direction: column;
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+  position: relative;
+  top: 10%;
+  left: 45%;
 }
 .logo {
   position: relative;
   float: none;
   width: 100px;
   height: 100px;
-  background-position: 50% 50%;
+  background-position: none;
   background-repeat: no-repeat;
   margin-left: 0px;
-  margin-right: 10px;
+  margin-right: 100px;
   margin-top: 0px;
   margin-bottom: 0px;
 } 
@@ -127,9 +141,9 @@ form {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 auto;
+  margin: center;
   padding: 20px;
-  margin: 50%
+  margin: 10%
 }
 
 form input {
@@ -149,7 +163,7 @@ form img {
   height: 80px;
 } */
 
-.dropdown-menu {
+/* .dropdown-menu {
 
   width: 150px;
   position: absolute;
@@ -178,7 +192,7 @@ form img {
   text-decoration: none;
   color: #fff;
   padding: 16px;
-} 
+}  */
 
 
 

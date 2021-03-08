@@ -44,16 +44,16 @@ export default ProductCard
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 250px;
-  margin: 4%;
+  width: 270px;
+  margin: 2%;
   margin-top: 10px;
   margin-buttom: 0px;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid black;
-  border-radius: 6px;
+  border-radius: 10px;
   :hover {
-      transform: scale(1.05);
-      box-shadow: 2px 5px trasparent;
+      transform: scale(1.01);
+      box-shadow: 2px 5px grey;
   }
 `;
 
