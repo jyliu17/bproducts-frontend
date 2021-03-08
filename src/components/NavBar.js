@@ -1,6 +1,9 @@
 import React, { useState} from "react";
+import { NavDropdown, Nav } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import Dropdown from "./Dropdown"
+import Navbar from "react-bootstrap/Navbar"
+
 
 function NavBar({ currentUser, setCurrentUser}) {
 
@@ -33,7 +36,31 @@ function NavBar({ currentUser, setCurrentUser}) {
   return (
     <header>
       <div>
-      <img className="logo" src="../mainLogo.png" alt=""/>
+        
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <img className="logo" src="../mainLogo.png" alt=""/>
+        <Navbar.Brand href="/home">Title</Navbar.Brand>
+       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
+        <Nav className="mr-auto">
+        <Nav.Link href="/profile">My Profile</Nav.Link>
+        <Nav.Link href="/favorites">Favorites</Nav.Link>
+        <NavDropdown title="Products" id="collasible-nav-dropdown">
+          <NavDropdown.Item href="/products">All</NavDropdown.Item>
+          <NavDropdown.Item href="/strollers">Strollers</NavDropdown.Item>
+          <NavDropdown.Item href="/carseats">Carseats</NavDropdown.Item>
+        </NavDropdown>
+        </Nav>
+        <Nav>
+        <button className="logout" onClick={logout}>Logout</button>
+        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/signup">Signup</Nav.Link>
+        </Nav>
+        {/* </Navbar.Collapse> */}
+      </Navbar>
+      </div>
+      {/* <div>
+
         {currentUser ?  (
           <>
             <h1 className="welcome" >Welcome {currentUser.username}!</h1>
@@ -67,7 +94,7 @@ function NavBar({ currentUser, setCurrentUser}) {
           </>
           )}
 
-      </div>
+      </div> */}
     </header>
   );
 }

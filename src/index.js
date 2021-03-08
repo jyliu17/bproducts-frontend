@@ -6,6 +6,7 @@ import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import ScrollToTop from "./components/ScrollToTop";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ReactDOM.render(

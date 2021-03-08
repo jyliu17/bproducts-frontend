@@ -9,7 +9,6 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-/*  */
 .searchbar {
   background-color: #100e10;
   border: 1px solid white;
@@ -19,30 +18,30 @@ code {
   padding: 20px;
   border-radius: 16px;
 }
+
 .logo {
   position: relative;
   float: none;
-  width: 100px;
-  height: 100px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  margin-left: 0px;
-  margin-right: 10px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-} 
-/* .logout {
+  width: 120px;
+  height: 120px;
+  /* background-position: 50% 50%; */
+  /* background-repeat: no-repeat; */
+  /* margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.logout {
   display: flex;
   margin-top: 350px;
   margin-left: 63px;
   background-color: #070206;
-} */
-/* .welcome {
+}
+.welcome {
   color: #0a090a;
   margin-top: auto;
-  font-size: 2rem;
-  padding: 6px 8px 6px 16px; 
-} */
+  font-size: 2rem; */
+  /* padding: 6px 8px 6px 16px; */
+/* } */
 
 /* h1 {
   color: black;
@@ -68,10 +67,10 @@ p {
   height: 300px;
 } */
 
-button {
+/* button {
   background-color: #0c0a0c;
   /* Green */
-  border: 1px solid white;
+  /* border: 1px solid white;
   border-radius: 20px;
   color: white;
   padding: 12px 20px;
@@ -86,7 +85,7 @@ button {
   margin-right: auto;
 }
 
-/* header {
+header {
   display: flex;
   align-items: center;
   height: 100%;
@@ -97,29 +96,29 @@ button {
   bottom: 0;
   left: 0;
   background-color: grey;
-} */
+}
 
-/* header a {
+header a {
   color: #1a0d17;
   padding: 6px 8px 6px 16px;
   text-decoration: wavy;
   font-size: 20px;
   display: block;
   margin-top: 25% auto;
-} */
+}
 
-/* a:hover {
+a:hover {
   color: #0a0409;
-} */
+}
 
-/* button:hover {
+button:hover {
   color: rgb(59, 52, 57)
-} */
+}
 
-/* main {
+main {
   margin-left: 320px;
   position: absolute;
-} */
+}
 
 form {
   background-color: #c9c9c9;
@@ -149,7 +148,7 @@ form img {
   height: 80px;
 } */
 
-.dropdown-menu {
+/* .dropdown-menu {
 
   width: 150px;
   position: absolute;
@@ -178,11 +177,11 @@ form img {
   text-decoration: none;
   color: #fff;
   padding: 16px;
-} 
+} */ 
 
 
 
-.grid { 
+/* .grid { 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -204,4 +203,4 @@ form img {
   color: white;
   padding: 10px;
   width: 60%;
-  } 
+  }  */

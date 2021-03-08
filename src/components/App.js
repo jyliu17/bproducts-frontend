@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addProducts } from "../redux/productSlice";
 import NavBar from "./NavBar";
+import Home from "./Home";
+import Login from "./Login";
+import Signup from "./Signup";
+import Profile from "./Profile";
 import ProductsList from "./ProductsList";
 import StrollersList from "./StrollersList";
 import CarseatsList from "./CarseatsList";
 import ProductPage from "./ProductPage";
 import FavoritesList from "./FavoritesList";
-import Login from "./Login";
-import Profile from "./Profile";
-import Signup from "./Signup";
-import { useDispatch, useSelector } from "react-redux";
-import { addProducts } from "../redux/productSlice";
-import Home from "./Home";
 
 function App() {
 

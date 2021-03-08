@@ -1,6 +1,7 @@
 import React, {  } from "react";
 import styled from "styled-components"
 import { Link } from "react-router-dom";
+import {Button} from "react-bootstrap"
 
 
 function FavoriteItem( { product, favId, onRemoveFromFav } ){  
@@ -25,7 +26,7 @@ function FavoriteItem( { product, favId, onRemoveFromFav } ){
             <p> Cost: ${cost}</p>
             <p> Up to: {time_of_use / 12} years</p>
             <br></br>
-            <button onClick={handleRemove}>Remove Favorite</button>
+            <Button onClick={handleRemove}>Remove Favorite</Button>
         </Card>
     )
 }
@@ -35,7 +36,7 @@ export default FavoriteItem;
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 260px;
   margin: 4%;
   margin-top: 10px;
   margin-buttom: 0px;
