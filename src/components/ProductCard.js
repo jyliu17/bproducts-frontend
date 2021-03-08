@@ -47,13 +47,13 @@ const Card = styled.div`
   width: 270px;
   margin: 2%;
   margin-top: 10px;
-  margin-buttom: 0px;
+  margin-buttom: 2px;
   padding: 10px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 16px;
   :hover {
       transform: scale(1.01);
-      box-shadow: 2px 5px grey;
+      box-shadow: 5px 5px grey;
   }
 `;
 

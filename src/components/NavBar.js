@@ -1,31 +1,31 @@
-import React, { useState} from "react";
+import React, { } from "react";
 import { NavDropdown, Nav } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
-import Dropdown from "./Dropdown"
+import { useHistory } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar"
+// import Dropdown from "./Dropdown"
 
 
 function NavBar({ currentUser, setCurrentUser}) {
 
   // const[click, setClick] = useState(false)
-  const[dropdown, setDropdown] = useState(false)
+  // const[dropdown, setDropdown] = useState(false)
   const history = useHistory();
 
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
+  // const onMouseEnter = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(false);
+  //   } else {
+  //     setDropdown(true);
+  //   }
+  // };
 
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
+  // const onMouseLeave = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(false);
+  //   } else {
+  //     setDropdown(false);
+  //   }
+  // };
 
   function logout() {
     setCurrentUser(null);
@@ -39,23 +39,21 @@ function NavBar({ currentUser, setCurrentUser}) {
       <div> 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <img className="logo" src="../mainLogo.png" alt=""/>
-        <Navbar.Brand href="/home">Baby On Board</Navbar.Brand>
+        <Navbar.Brand href="/">Baby On Board</Navbar.Brand>
        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
-        <Nav className="mr-auto">
+         <Nav className="mr-auto">
         <Nav.Link href="/profile">My Profile</Nav.Link>
         <Nav.Link href="/favorites">Favorites</Nav.Link>
         <NavDropdown title="Products" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="/products">All</NavDropdown.Item>
+         <NavDropdown.Item href="/products">All</NavDropdown.Item>
           <NavDropdown.Item href="/strollers">Strollers</NavDropdown.Item>
           <NavDropdown.Item href="/carseats">Carseats</NavDropdown.Item>
         </NavDropdown>
         </Nav>
         <Nav>
+        <h4 className="welcome" >Welcome {currentUser.username}!</h4>
         <Nav.Link className="logout" onClick={logout}>Logout</Nav.Link>
-        {/* <button className="logout" onClick={logout}>Logout</button> */}
         </Nav>
-        {/* </Navbar.Collapse> */}
       </Navbar>
       </div> :
       <div> 
@@ -63,7 +61,6 @@ function NavBar({ currentUser, setCurrentUser}) {
         <img className="logo" src="../mainLogo.png" alt=""/>
         <Navbar.Brand href="/home">Title</Navbar.Brand>
        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
         <Nav className="mr-auto">
         <Nav.Link href="/profile">My Profile</Nav.Link>
         <Nav.Link href="/favorites">Favorites</Nav.Link>
@@ -77,13 +74,12 @@ function NavBar({ currentUser, setCurrentUser}) {
         <Nav.Link href="/login">Login</Nav.Link>
         <Nav.Link href="/signup">Signup</Nav.Link>
         </Nav>
-        {/* </Navbar.Collapse> */}
       </Navbar>
       </div>  
       }
-
-
-
+   </header>
+  );
+}
       {/* <div>
 
         {currentUser ?  (
@@ -119,9 +115,6 @@ function NavBar({ currentUser, setCurrentUser}) {
           </>
           )}
 
-      </div> */}
-    </header>
-  );
-}
+      </div> */} 
 
 export default NavBar;

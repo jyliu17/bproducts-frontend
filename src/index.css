@@ -1,15 +1,12 @@
 /* body {
-  margin: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
   display: flex;
-}
+} */
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-/*  */
+} */
+
 .searchbar {
   background-color: #100e10;
   border: 1px solid white;
@@ -51,18 +48,17 @@ code {
   margin-left: 63px;
   background-color: #070206;
 } */
-/* .welcome {
-  color: #0a090a;
+.welcome {
+  color: white;
   margin-top: auto;
-  font-size: 2rem;
-  padding: 6px 8px 6px 16px; 
-} */
-
-/* h1 {
-  color: black;
-  text-align: center;
+  font-size: 1.5rem;
+  padding: 6px 168px 6px 16px; 
 }
 
+/* h1 {
+  text-align: center;
+} */
+/* 
 h3 {
   color: #080408;
 }
@@ -84,7 +80,6 @@ p {
 
 button {
   background-color: #0c0a0c;
-  /* Green */
   border: 1px solid white;
   border-radius: 20px;
   color: white;
@@ -100,6 +95,16 @@ button {
   margin-right: auto;
 }
 
+.carouselitem {
+  position: relative;
+  left:  35%;
+}
+.carousel-control-prev{
+  background-color: skyblue;
+}
+.carousel-control-next{
+  background-color: lightcoral;
+}
 /* header {
   display: flex;
   align-items: center;
