@@ -1,7 +1,8 @@
-/* body {
+body {
   background-color: black;
-  display: flex;
-} */
+  padding-bottom: 10px;
+}
+  
 
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -14,9 +15,10 @@
   flex-direction: column;
   width: 300px;
   padding: 10px;
-  border-radius: 16px;
+  padding-left: 20px;
+  border-radius: 20px;
   position: relative;
-  left:  40%;
+  left:  20%;
 }
 .cost-filter{
   background-color: #100e10;
@@ -24,11 +26,12 @@
   display: inline block;
   flex-direction: column;
   width: 200px;
-  padding: 10px;
-  border-radius: 16px;
+  padding-top: 20px;
+  padding-left: 12px;
+  border-radius: 20px;
   position: relative;
   top: 10%;
-  left: 43%;
+  left: 35%;
 }
 .logo {
   position: relative;
@@ -106,27 +109,7 @@ button {
 .carousel-control-next{
   background-color: lightcoral;
 }
-/* header {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 16%;
-  position: fixed;
-  float: left;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: grey;
-} */
 
-/* header a {
-  color: #1a0d17;
-  padding: 6px 8px 6px 16px;
-  text-decoration: wavy;
-  font-size: 20px;
-  display: block;
-  margin-top: 25% auto;
-} */
 
 /* a:hover {
   color: #0a0409;
@@ -136,14 +119,13 @@ button {
   color: rgb(59, 52, 57)
 } */
 
-/* main {
-  margin-left: 320px;
-  position: absolute;
-} */
+
 
 .product-page {
   margin-left: 5%;
-  padding: 5%
+  padding: 5%;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 form {
@@ -154,7 +136,8 @@ form {
   width: 300px;
   margin: center;
   padding: 20px;
-  margin: 10%
+  margin: 10%;
+
 }
 
 form input {
@@ -168,11 +151,7 @@ form input[type="submit"] {
 form img {
   width: 100px;
 }
-/* .nav-item {
-  display: flex;
-  align-items: center;
-  height: 80px;
-} */
+
 
 /* .dropdown-menu {
 

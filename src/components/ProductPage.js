@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard"
 import ReviewForm from "./ReviewForm"
 import ReactPlayer from "react-player"
+import styled from "styled-components"
 
 
 // import styled from "styled-components"
@@ -60,11 +61,12 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
   
 
       return (
+      <Wrapper>
         <section className="product-page">
           <div>
             <br></br>
             <h1>{name}</h1>
-            <img src={image} alt={name} style={{ height: 300, width:300 }}/>
+            <img src={image} alt={name} style={{ height: 350, width:350 }}/>
             <br></br>
             <br></br>
             <p>{description}</p>
@@ -78,8 +80,8 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
           <br></br>
           <div className="video">
                     <ReactPlayer
-                        width={700}
-                        height={400}
+                        width={600}
+                        height={350}
                         controls={true}
                         volume={0.2}
                         playing={false}
@@ -87,7 +89,8 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
                         url={video}
                     />
                 </div>     
-          <br></br>    
+          <br></br>   
+          
           <div>
             {showForm ? <button onClick={handleFormClick}>Hide Form</button> :
                         <button onClick={handleFormClick}>New Review</button>}
@@ -98,13 +101,22 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
                           handleAddReview={handleAddReview} />: null }
           </div>
           <h2> Reviews </h2>
-          <div>
+          <div >
               {reviewArray}
           </div>
           <br></br>
-          
+          <br></br>
+          <br></br>
         </section>
+      </Wrapper>
       );
 }
 
 export default ProductPage
+
+const Wrapper = styled.div `
+  display: flex;
+  height: 100vh;
+  width: 100vh;
+
+`

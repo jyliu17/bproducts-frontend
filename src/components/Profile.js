@@ -37,7 +37,7 @@ function Profile({ currentUser, setCurrentUser }) {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <h1> {currentUser.username}'s profile</h1>
+      <h2> {currentUser.username}'s profile</h2>
 
       <label>Username</label>
       <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />

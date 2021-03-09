@@ -22,11 +22,12 @@ function FavoriteItem( { product, favId, onRemoveFromFav } ){
             <LinkStyle>
             <Link style={{ color:"white" }} to={`/products/${id}`}>View Product Detail </Link>
             </LinkStyle>
+            <br></br>
             <h4>{brand}</h4>
             <p> Cost: ${cost}</p>
             <p> Up to: {time_of_use / 12} years</p>
             <br></br>
-            <Button onClick={handleRemove}>Remove Favorite</Button>
+            <button onClick={handleRemove}>Remove Favorite</button>
         </Card>
     )
 }
