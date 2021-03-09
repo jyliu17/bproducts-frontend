@@ -44,7 +44,7 @@ export default ProductCard
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 270px;
+  width: 280px;
   margin: 2%;
   margin-top: 10px;
   margin-buttom: 2px;
@@ -53,7 +53,7 @@ const Card = styled.div`
   border-radius: 16px;
   :hover {
       transform: scale(1.01);
-      box-shadow: 5px 5px grey;
+      box-shadow: 5px 5px black;
   }
 `;
 

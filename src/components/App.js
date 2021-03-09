@@ -26,21 +26,21 @@ function App() {
 
 
   // autologin
-    useEffect(() => {
+    // useEffect(() => {
     
-      const token = localStorage.getItem("token");
+    //   const token = localStorage.getItem("token");
       
-        fetch(`${process.env.REACT_APP_RAILS_URL}/self`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((r) => r.json())
-          .then((user) => {
-            setCurrentUser(user);
-          });
+    //     fetch(`${process.env.REACT_APP_RAILS_URL}/self`, {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     })
+    //       .then((r) => r.json())
+    //       .then((user) => {
+    //         setCurrentUser(user);
+    //       });
       
-    }, []);
+    // }, []);
 
   const API = `${process.env.REACT_APP_RAILS_URL}/products`;
   useEffect(() => {
@@ -162,25 +162,25 @@ function onRemoveFromFav(id) {
       <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile">
           {currentUser ?
           <Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/> : 
           <h2>Please Login or create an account</h2>}
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
-        <Route path="/products/:id">
+        <Route exact path="/products/:id">
           <ProductPage reviews={reviews} 
                        addReview={addReview} 
                        removeReview={removeReview} 
                        currentUser={currentUser}
                        updateReview={updateReview}/>
         </Route>
-        <Route path="/products">
+        <Route exact path="/products">
           <ProductsList 
             products={filteredProducts}
             handleAddFav={handleAddFav}
@@ -193,7 +193,7 @@ function onRemoveFromFav(id) {
             // showForm={showForm}
           />
         </Route>
-        <Route path="/strollers">
+        <Route exact path="/strollers">
           <StrollersList  products={filteredProducts}
             productSearch={productSearch} 
             setProductSearch={setProductSearch} 
@@ -205,7 +205,7 @@ function onRemoveFromFav(id) {
             setFilter={setFilter}
           />
         </Route>
-        <Route path="/carseats">
+        <Route exact path="/carseats">
           <CarseatsList  products={filteredProducts}
             productSearch={productSearch} 
             setProductSearch={setProductSearch} 
@@ -217,7 +217,7 @@ function onRemoveFromFav(id) {
             setFilter={setFilter}
           />
         </Route>
-        <Route path="/favorites">
+        <Route exact path="/favorites">
           <FavoritesList
             key='myFav'
             currentUser={currentUser}
