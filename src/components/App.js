@@ -26,21 +26,21 @@ function App() {
 
 
   // autologin
-    // useEffect(() => {
+    useEffect(() => {
     
-    //   const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
       
-    //     fetch(`${process.env.REACT_APP_RAILS_URL}/self`, {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     })
-    //       .then((r) => r.json())
-    //       .then((user) => {
-    //         setCurrentUser(user);
-    //       });
+        fetch(`${process.env.REACT_APP_RAILS_URL}/self`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((r) => r.json())
+          .then((user) => {
+            setCurrentUser(user);
+          });
       
-    // }, []);
+    }, []);
 
   const API = `${process.env.REACT_APP_RAILS_URL}/products`;
   useEffect(() => {
