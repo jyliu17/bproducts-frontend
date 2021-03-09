@@ -71,8 +71,8 @@ console.log(review.user)
         {rating === 3 ? "⭐️⭐️⭐️" : null}
         {rating === 4 ? "⭐️⭐️⭐️⭐️" : null}
         {rating === 5 ? "⭐️⭐️⭐️⭐️⭐️" : null}
-        <br></br>
-
+        <br></br><br></br>
+        
         {review.user.id === currentUser.id ? 
                 <div >
                     {showForm ? <UpdateReviewForm />: null}

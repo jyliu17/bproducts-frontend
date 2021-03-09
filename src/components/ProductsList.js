@@ -44,11 +44,6 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
 
     return (
         <>
-        {/* <main>
-            <Switch>
-             
-            </Switch>
-        </main> */}
          <LINK>
         <h1><Link style={{ color:"white" }} to={"/strollers"}>Strollers </Link></h1>
         </LINK>
@@ -73,5 +68,6 @@ const LINK = styled.div`
     background-color: black;
     border: 1px solid white;
     padding: 5px;
+    padding-top: 10px;
     border-radius: 16px; 
 `;
