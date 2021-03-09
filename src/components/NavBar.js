@@ -1,7 +1,6 @@
 import React, { } from "react";
-import { NavDropdown, Nav } from "react-bootstrap";
+import { NavDropdown, Nav, Navbar } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar"
 // import Dropdown from "./Dropdown"
 
 
