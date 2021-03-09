@@ -29,8 +29,7 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         <p> Type: {type_of}</p>
         <p> Up to: {time_of_use / 12} years</p>
         
-        <br></br>
-        {!currentUser ? null :
+                {!currentUser ? null :
             <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button> 
         } 
         </Card>
@@ -49,6 +48,7 @@ const Card = styled.div`
   margin-top: 10px;
   margin-buttom: 2px;
   padding: 10px;
+  line-height: 1;
   border: 1px solid black;
   border-radius: 16px;
   :hover {
@@ -58,9 +58,9 @@ const Card = styled.div`
 `;
 
 const LinkStyle = styled.div`
-    
     background-color: black;
     border: 1px solid white;
     padding: 20px;
+    margin-bottom: 10px;
     border-radius: 16px; 
 `;

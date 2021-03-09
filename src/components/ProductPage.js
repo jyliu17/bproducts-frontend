@@ -60,11 +60,13 @@ function ProductPage({reviews, currentUser, addReview, removeReview, updateRevie
   
 
       return (
-        <section>
+        <section className="product-page">
           <div>
             <br></br>
             <h1>{name}</h1>
             <img src={image} alt={name} style={{ height: 300, width:300 }}/>
+            <br></br>
+            <br></br>
             <p>{description}</p>
             <p>Made by: {brand}</p>
             <p>Type: {type_of}</p>

@@ -18,7 +18,7 @@
   position: relative;
   left:  40%;
 }
-.nav-filter{
+.cost-filter{
   background-color: #100e10;
   border: 1px solid white;
   display: inline block;
@@ -28,7 +28,7 @@
   border-radius: 16px;
   position: relative;
   top: 10%;
-  left: 45%;
+  left: 43%;
 }
 .logo {
   position: relative;
@@ -42,12 +42,6 @@
   margin-top: 0px;
   margin-bottom: 0px;
 } 
-/* .logout {
-  display: flex;
-  margin-top: 350px;
-  margin-left: 63px;
-  background-color: #070206;
-} */
 .welcome {
   color: white;
   margin-top: auto;
@@ -55,17 +49,24 @@
   padding: 6px 168px 6px 16px; 
 }
 
-/* h1 {
+h1 {
   text-align: center;
-} */
-/* 
-h3 {
-  color: #080408;
+  color: black;
+}
+.mission {
+  text-align: center;
+  color: lightcoral;
 }
 
 h4 {
   color: rgb(60, 184, 184);
 }
+/* 
+h3 {
+  color: #080408;
+}
+
+
 
 p {
   color: #695d65;
@@ -139,6 +140,11 @@ button {
   margin-left: 320px;
   position: absolute;
 } */
+
+.product-page {
+  margin-left: 5%;
+  padding: 5%
+}
 
 form {
   background-color: #c9c9c9;
