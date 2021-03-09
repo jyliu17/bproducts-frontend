@@ -58,8 +58,8 @@ const Card = styled.div`
 `;
 
 const LinkStyle = styled.div`
-    background-color: #8a6083;
-    background-color: gray;
+    
+    background-color: black;
     border: 1px solid white;
     padding: 20px;
     border-radius: 16px; 

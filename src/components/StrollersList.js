@@ -2,6 +2,7 @@ import React, {  } from 'react'
 import {  } from 'react-redux'
 import ProductCard from './ProductCard'
 import Search from "./Search"
+import styled from "styled-components"
 
 
 
@@ -27,7 +28,9 @@ function StrollersList({products, productSearch, setProductSearch, handleAddFav,
         <Search productSearch={productSearch} setProductSearch={setProductSearch} filter={filter} setFilter={setFilter}/>
         <div>
         <h1>Strollers</h1>
+        <Wrapper>
         {strollersArray}
+        </Wrapper>
         </div>
         </>
     )
@@ -35,3 +38,8 @@ function StrollersList({products, productSearch, setProductSearch, handleAddFav,
 }
 
 export default StrollersList
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`

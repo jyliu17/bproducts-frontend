@@ -1,5 +1,6 @@
 import React, {  } from "react";
 import FavoriteItem from "./FavoriteItem";
+import styled from "styled-components"
 
 function FavoritesList({ onRemoveFromFav, currentUser, favorites, setFavorites, }) {
 
@@ -18,10 +19,18 @@ function FavoritesList({ onRemoveFromFav, currentUser, favorites, setFavorites, 
 
     return (
         <div>
+            <h1>My Favorites</h1>
+            <Wrapper>
             {favoritesArray}
+            </Wrapper>
         </div>
     )
  
 };
 
 export default FavoritesList;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
