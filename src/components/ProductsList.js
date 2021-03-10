@@ -11,8 +11,8 @@ function ProductsList({products, handleAddFav, handleRemoveFav, currentUser, fav
 
 
 
-
-
+    console.log(favorites)
+    
     const strollers = products.filter(prod => {
         return prod.category.id === 1
     }) 

@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favorites}) {
 
-    console.log(favorites)
+  
 
     function handleClick(e){
         if (e.target.innerText === "⭐️"){
@@ -30,9 +30,9 @@ function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favor
         <p> Type: {type_of}</p>
         <p> Up to: {time_of_use / 12} years</p>
         
-                {!currentUser ? null :
+                {/* {!currentUser ? null :
             <button onClick={handleClick}>{favorites.find(fav=>fav.product.id === id) ? "⭐️" : "☆"}</button> 
-        } 
+        }  */}
         </Card>
     )
     
