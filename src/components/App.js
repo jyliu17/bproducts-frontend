@@ -11,6 +11,7 @@ import ProductsList from "./ProductsList";
 import StrollersList from "./StrollersList";
 import CarseatsList from "./CarseatsList";
 import ProductPage from "./ProductPage";
+import ProductCard from "./ProductCard";
 import FavoritesList from "./FavoritesList";
 
 function App() {
@@ -42,9 +43,9 @@ function App() {
       
     // }, []);
 
-  const API = `${process.env.REACT_APP_RAILS_URL}/products`;
+  
   useEffect(() => {
-    fetch(API)
+    fetch(`${process.env.REACT_APP_RAILS_URL}/products`)
     .then(r => r.json())
     .then(productObj => {
       dispatch(addProducts(productObj))

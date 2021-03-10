@@ -79,7 +79,7 @@ function NavBar({ currentUser, setCurrentUser}) {
    </header>
   );
 }
-      {/* <div>
+      /* <div>
 
         {currentUser ?  (
           <>
@@ -114,6 +114,6 @@ function NavBar({ currentUser, setCurrentUser}) {
           </>
           )}
 
-      </div> */} 
+      </div> */
 
 export default NavBar;

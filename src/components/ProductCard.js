@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 function ProductCard({product, currentUser, handleAddFav, handleRemoveFav, favorites}) {
 
+    console.log(favorites)
 
     function handleClick(e){
         if (e.target.innerText === "⭐️"){

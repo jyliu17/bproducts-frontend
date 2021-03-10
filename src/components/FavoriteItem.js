@@ -1,7 +1,7 @@
 import React, {  } from "react";
 import styled from "styled-components"
 import { Link } from "react-router-dom";
-import {Button} from "react-bootstrap"
+// import {Button} from "react-bootstrap"
 
 
 function FavoriteItem( { product, favId, onRemoveFromFav } ){  

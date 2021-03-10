@@ -10,9 +10,7 @@ function ReviewCard({review, currentUser, handleDeleteReview, handleUpdateReview
   const [showForm, setShowForm] = useState(false)
   const { id, comment, rating,  user } = review
 
-// console.log(currentUser.id)
-console.log(review.user)
-console.log(review.user.id)
+
   function UpdateReviewForm() {
     const [newComment, setNewComment] = useState(review.comment)
     const [newRating, setNewRating] = useState(review.rating)
