@@ -50,7 +50,7 @@ function NavBar({ currentUser, setCurrentUser}) {
         </NavDropdown>
         </Nav>
         <Nav>
-        <h4 className="welcome" >Hello {currentUser.username}!</h4>
+        <h4 className="welcome" >Welcome {currentUser.username}!</h4>
         <Nav.Link className="logout" onClick={logout}>Logout</Nav.Link>
         </Nav>
       </Navbar>

@@ -66,6 +66,7 @@ function App() {
     fetch(`${process.env.REACT_APP_RAILS_URL}/users/${currentUser.id}`)
         .then(r => r.json())
         .then(userObj=> { 
+          console.log(userObj)
             setFavorites(userObj.favorites)
         })
     }

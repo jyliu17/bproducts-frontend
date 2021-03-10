@@ -119,6 +119,9 @@ button {
   color: rgb(59, 52, 57)
 } */
 
+h5 {
+  line-height: 1.5;
+}
 
 
 .product-page {
@@ -126,6 +129,7 @@ button {
   padding: 5%;
   padding-bottom: 5px;
   margin-left: 5px;
+  line-height: 1.5;
 }
 
 
