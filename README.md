@@ -1,3 +1,6 @@
+Video Demonstration: https://www.youtube.com/watch?v=Yv3KvUjNjNQ&t=12s
+Backend Repo: https://github.com/jyliu17/bproducts-backend
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
